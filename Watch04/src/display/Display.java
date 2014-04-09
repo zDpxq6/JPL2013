@@ -60,8 +60,9 @@ public class Display extends Window implements InterfaceForCounterClient{
 	}
 
 	private void initAppearance(){
-		setVisible(true);
-		setLayout(new FlowLayout(FlowLayout.CENTER));
+		this.setVisible(true);
+		this.setSize( Const.FRAME_WIDTH, Const.FRAME_HEIGHT );
+		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.graphics = (Graphics2D) this.bufferedImage.getGraphics();
 		this.setLocation(load());
 	}
