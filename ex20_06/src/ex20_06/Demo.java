@@ -1,11 +1,11 @@
-package ex20_05;
+package ex20_06;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.LineNumberReader;
 
-public class FindString {
-	public static void main(String[] args) throws IOException{
+public class Demo {
+	public static void main(String[] args) throws FileNotFoundException{
 		FileReader fileIn = new FileReader(args[0]);
 		String match = args[1];
 		@SuppressWarnings("resource")
