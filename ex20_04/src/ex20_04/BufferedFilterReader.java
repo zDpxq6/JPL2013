@@ -14,7 +14,7 @@ public class BufferedFilterReader extends FilterReader{
 		synchronized(this.lock){
 			int readChar = -1;
 			StringBuilder result = new StringBuilder();
-			while(readChar != -1 && readChar != '\n' && readChar != '\r'){
+			while((readChar = this.read()) != -1 && readChar != '\n' && readChar != '\r'){
 				result.append(readChar);
 			}
 			return result.toString();
