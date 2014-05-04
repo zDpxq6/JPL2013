@@ -5,29 +5,33 @@ import java.lang.reflect.Method;
 
 import javax.swing.JList;
 
-import method.銉°偨銉冦儔銉戙儵銉°兗銈垮叆鍔沀I;
-import openingScreen.Models;
+import method.儊僜僢僪僷儔儊乕僞擖椡UI;
 
 import component.ExceptionArea;
+import component.Models;
 
 
-public class 閰嶅垪浠ュ銉°兂銉怳I銉°偨銉冦儔閬告姙銉炪偊銈广儶銈广儕 implements MouseListener {
+public class 攝楍埲奜儊儞僶UI儊僜僢僪慖戰儅僂僗儕僗僫 implements MouseListener {
 
 	private final JList jl;
 	private final Models mdls;
 	private final ExceptionArea ea;
+	private final Object selectedInstance;
 
-	public 閰嶅垪浠ュ銉°兂銉怳I銉°偨銉冦儔閬告姙銉炪偊銈广儶銈广儕(JList methodList, Models mdls, ExceptionArea ea){
+	public 攝楍埲奜儊儞僶UI儊僜僢僪慖戰儅僂僗儕僗僫(JList methodList, Object obj, Models mdls, ExceptionArea ea){
 		this.jl = methodList;
+		this.selectedInstance = obj;
 		this.mdls = mdls;
 		this.ea = ea;
 	}
 
 	@Override
 	public void mouseClicked( MouseEvent arg0) {
+		System.out.println("null?");
 		Method selectedMethod = (Method) this.jl.getSelectedValue();
-		this.jl.clearSelection();// 銈傘仺銇儶銈广儓銇伕鎶炪倰瑙ｉ櫎
-		銉°偨銉冦儔銉戙儵銉°兗銈垮叆鍔沀I mui = new 銉°偨銉冦儔銉戙儵銉°兗銈垮叆鍔沀I(selectedMethod, this.mdls,this.ea);
+		this.jl.clearSelection();
+		System.out.println("null?");
+		儊僜僢僪僷儔儊乕僞擖椡UI mui = new 儊僜僢僪僷儔儊乕僞擖椡UI(selectedMethod, this.selectedInstance, this.mdls, this.ea);
 		mui.setVisible(true);
 	}
 

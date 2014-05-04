@@ -6,52 +6,52 @@ import javax.swing.JLabel;
 
 
 
-//å®šæ•°ã‚’æ ¼ç´ã™ã‚‹ã‚¯ãƒ©ã‚¹
+//’è”‚ğŠi”[‚·‚éƒNƒ‰ƒX
 
 
 
 public class Const {
 	public static final int OPENING_SCREEN_FRAME_WIDTH = 500;
 	public static final int OPENING_SCREEN_FRAME_HIGHT = 500;
-	public static final String é…åˆ—è¦ç´ å…¥åŠ›UI = "é…åˆ—è¦ç´ ã®å…¥åŠ›";
+	public static final String ”z—ñ—v‘f“ü—ÍUI = "”z—ñ—v‘f‚Ì“ü—Í";
 
-	public static final String ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIã‚¿ã‚¤ãƒˆãƒ« = "ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UI";
-	public static final int ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIå¹… = 300;
-	public static final int ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIé«˜ã• = 300;
-	static final int ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿é¸æŠUIå¹… = 300;
-	static final int ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿é¸æŠUIé«˜ã• = 300;
-	public static final String ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆãƒœã‚¿ãƒ³ãƒ©ãƒ™ãƒ« = "ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ";
+	public static final String CONSTRUCTOR_PARAMETER_INPUT_SCREEN_TITLE = "ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍUI";
+	public static final int CONSTRUCTOR_LIST_SCREEN_FRAME_WIDTH = 300;
+	public static final int CONSTRUCTOR_SCREEN_FRAME_HIGHT = 300;
+	static final int ƒRƒ“ƒXƒgƒ‰ƒNƒ^‘I‘ğUI• = 300;
+	static final int ƒRƒ“ƒXƒgƒ‰ƒNƒ^‘I‘ğUI‚‚³ = 300;
+	public static final String CONSTRUCTOR_LIST_SCREEN_MAKING_OBJECT_BUTTON_LABEL = "ƒIƒuƒWƒFƒNƒg¶¬";
 
-	static final int ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿é¸æŠUIã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒšã‚¤ãƒ³å¹… = 200;
-	static final int ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿é¸æŠUIã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒšã‚¤ãƒ³é«˜ã• = 100;
+	static final int ƒRƒ“ƒXƒgƒ‰ƒNƒ^‘I‘ğUIƒXƒNƒ[ƒ‹ƒyƒCƒ“• = 200;
+	static final int ƒRƒ“ƒXƒgƒ‰ƒNƒ^‘I‘ğUIƒXƒNƒ[ƒ‹ƒyƒCƒ“‚‚³ = 100;
 
-	public static final int ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒšã‚¤ãƒ³å¹… = 200;
-	public static final int ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒšã‚¤ãƒ³é«˜ã• = 100;
+	public static final int ƒXƒNƒ[ƒ‹ƒyƒCƒ“• = 200;
+	public static final int ƒXƒNƒ[ƒ‹ƒyƒCƒ“‚‚³ = 100;
 
 	public static final String TEXTFIELD_INITIAL_VALUE = "java.lang.Integer";
-	public static final String OPENING_SCREEN_TITLE = "ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ãƒ‡ãƒ¢";
+	public static final String OPENING_SCREEN_TITLE = "ƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒfƒ‚";
 	static final int TEXTFIELD_LENGTH = 10;
 
 	static final int RECORD_OF_INSTANCE = 10;
-	public static final String FrameName2 = "ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®é¸æŠ";
+	public static final String CONSTRUCTOR_LIST_SCREEN_TITLE = "ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘I‘ğ";
 
 
-	public static final int ãƒ¡ãƒ³ãƒUIå¹… = 1200;
-	public static final int ãƒ¡ãƒ³ãƒUIé«˜ã• = 300;
-	public static final String ãƒ¡ãƒ³ãƒUIã‚¿ã‚¤ãƒˆãƒ« = "ãƒ¡ãƒ³ãƒå…¥åŠ›ç”»é¢";
+	public static final int ƒƒ“ƒoUI• = 1200;
+	public static final int ƒƒ“ƒoUI‚‚³ = 300;
+	public static final String ƒƒ“ƒoUIƒ^ƒCƒgƒ‹ = "ƒƒ“ƒo“ü—Í‰æ–Ê";
 	public static final String PARAMETER_INPUT_UI_TITLE = null;
-	public static final String OPENING_SCREEN_MAKE_ARRAY_BUTTON_LABEL = "é…åˆ—ç”Ÿæˆé–‹å§‹";
-	public static final JLabel OPENING_SCREEN_OBJECT_LABEL = new JLabel("ã‚¯ãƒ©ã‚¹åã‚’å…¥åŠ›");
-	public static final JLabel ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¿ãƒ¼ãƒˆUIé…åˆ—ã‚µã‚¤ã‚ºã‚¹ãƒ”ãƒŠãƒ©ãƒ™ãƒ« = new JLabel("ã‚¯ãƒ©ã‚¹åã‚’å…¥åŠ›");
-	public static final JLabel OPENING_SCREEN_ARRAY_LABEL = new JLabel("é…åˆ—æ•°ã‚’å…¥åŠ›");
-	public static final String ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIã‚¿ã‚¤ãƒˆãƒ« = "ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ç”»é¢";
-	public static final int ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIå¹… = 900;
-	public static final int ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIé«˜ã• = 300;
-	public static final String ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒ©ãƒ™ãƒ« = "ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œ";
+	public static final String OPENING_SCREEN_MAKE_ARRAY_BUTTON_LABEL = "”z—ñ¶¬ŠJn";
+	public static final JLabel OPENING_SCREEN_OBJECT_LABEL = new JLabel("ƒNƒ‰ƒX–¼‚ğ“ü—Í");
+	public static final JLabel ƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒXƒ^[ƒgUI”z—ñƒTƒCƒYƒXƒsƒiƒ‰ƒxƒ‹ = new JLabel("ƒNƒ‰ƒX–¼‚ğ“ü—Í");
+	public static final JLabel OPENING_SCREEN_ARRAY_LABEL = new JLabel("”z—ñ”‚ğ“ü—Í");
+	public static final String ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒ^ƒCƒgƒ‹ = "ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—Í‰æ–Ê";
+	public static final int ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUI• = 900;
+	public static final int ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUI‚‚³ = 300;
+	public static final String ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“ƒ‰ƒxƒ‹ = "ƒƒ\ƒbƒhÀs";
 
-	public static String OPENING_SCREEN_MAKE_OBJECT_BUTTON_LABEL = "ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆé–‹å§‹";
+	public static String OPENING_SCREEN_MAKE_OBJECT_BUTTON_LABEL = "ƒIƒuƒWƒFƒNƒg¶¬ŠJn";
 
 	static final GridLayout OPENING_SCREEN = new GridLayout(3,1);
-	static final GridLayout å®šæ•°_å…¥åŠ›ãƒ‘ãƒãƒ«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ = new GridLayout(2,1);
-	static final GridLayout å®šæ•°_ãƒ©ãƒ™ãƒ«å…¥åŠ›ãƒœã‚¿ãƒ³ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ = new GridLayout(1,3);
+	static final GridLayout ’è”_“ü—Íƒpƒlƒ‹ƒŒƒCƒAƒEƒg = new GridLayout(2,1);
+	static final GridLayout ’è”_ƒ‰ƒxƒ‹“ü—Íƒ{ƒ^ƒ“ƒŒƒCƒAƒEƒg = new GridLayout(1,3);
 }

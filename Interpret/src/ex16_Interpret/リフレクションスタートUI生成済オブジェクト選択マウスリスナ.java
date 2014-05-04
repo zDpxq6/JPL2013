@@ -4,34 +4,32 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
-import openingScreen.Models;
-
 import component.ExceptionArea;
+import component.Models;
+import editingArray.”z—ñƒƒ“ƒoUI;
+import editingObject.”z—ñˆÈŠOƒƒ“ƒoUI;
 
-import editingArray.é…åˆ—ãƒ¡ãƒ³ãƒUI;
-import editingObject.é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUI;
 
-
-public class ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¿ãƒ¼ãƒˆUIç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆé¸æŠãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ implements MouseListener {
+public class ƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒXƒ^[ƒgUI¶¬ÏƒIƒuƒWƒFƒNƒg‘I‘ğƒ}ƒEƒXƒŠƒXƒi implements MouseListener {
 
 	private final ExceptionArea ea;
 	private Object selectedInstance;
 	private final Models mdls;
 
-	public ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¿ãƒ¼ãƒˆUIç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆé¸æŠãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ(Models mdls, ExceptionArea ea){
+	public ƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒXƒ^[ƒgUI¶¬ÏƒIƒuƒWƒFƒNƒg‘I‘ğƒ}ƒEƒXƒŠƒXƒi(Models mdls, ExceptionArea ea){
 		this.mdls = mdls;
 		this.ea = ea;
 	}
 
 	@Override
 	public void mouseClicked( MouseEvent arg0) {
-		this.selectedInstance = this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä¸€è¦§().getSelectedValue();
-		this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä¸€è¦§().clearSelection();// ã‚‚ã¨ã®ãƒªã‚¹ãƒˆã®é¸æŠã‚’è§£é™¤
+		this.selectedInstance = this.mdls.getList().getSelectedValue();
+		this.mdls.getList().clearSelection();// ‚à‚Æ‚ÌƒŠƒXƒg‚Ì‘I‘ğ‚ğ‰ğœ
 		JFrame frame = null;
 		if(this.selectedInstance.getClass().isArray()){
-			frame = new é…åˆ—ãƒ¡ãƒ³ãƒUI(this.selectedInstance, this.mdls, this.ea);
+			frame = new ”z—ñƒƒ“ƒoUI(this.selectedInstance, this.mdls, this.ea);
 		}else{
-			frame = new é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUI(this.selectedInstance, this.mdls, this.ea);
+			frame = new ”z—ñˆÈŠOƒƒ“ƒoUI(this.selectedInstance, this.mdls, this.ea);
 		}
 		frame.setVisible(true);
 	}

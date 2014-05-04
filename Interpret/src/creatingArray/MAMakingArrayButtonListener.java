@@ -9,9 +9,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.SwingUtilities;
 
-import openingScreen.Models;
-
 import component.ExceptionArea;
+import component.Models;
 
 
 public class MAMakingArrayButtonListener implements ActionListener {
@@ -21,14 +20,14 @@ public class MAMakingArrayButtonListener implements ActionListener {
 	private final int arrayLength;
 	private final Models mdls;
 	private final ExceptionArea ea;
-	private final JComboBox[] 配列要素入力コンボボックスアレイ;
+	private final JComboBox[] �z��v�f���̓R���{�{�b�N�X�A���C;
 
 
-	public MAMakingArrayButtonListener (Class<?> selectedClass, JCheckBox chb, JComboBox[] 配列要素入力コンボボックスアレイ, Models mdls, ExceptionArea ea){
+	public MAMakingArrayButtonListener (Class<?> selectedClass, JCheckBox chb, JComboBox[] �z��v�f���̓R���{�{�b�N�X�A���C, Models mdls, ExceptionArea ea){
 		this.selectedClass = selectedClass;
 		this.chb = chb;
-		this.配列要素入力コンボボックスアレイ = 配列要素入力コンボボックスアレイ;
-		this.arrayLength = 配列要素入力コンボボックスアレイ.length;
+		this.�z��v�f���̓R���{�{�b�N�X�A���C = �z��v�f���̓R���{�{�b�N�X�A���C;
+		this.arrayLength = �z��v�f���̓R���{�{�b�N�X�A���C.length;
 		this.mdls = mdls;
 		this.ea = ea;
 	}
@@ -39,91 +38,92 @@ public class MAMakingArrayButtonListener implements ActionListener {
 			if(this.chb.isSelected()){
 				String type = this.selectedClass.toString();
 				if(Character.class.equals(type)){
-					char[] 結果 = (char[]) Array.newInstance(this.selectedClass, this.arrayLength);
+					char[] ���� = (char[]) Array.newInstance(this.selectedClass, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						結果[k] = (Character) comboBox.getSelectedItem();
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						����[k] = (Character) comboBox.getSelectedItem();
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}else if(Byte.class.equals(this.selectedClass)){
-					byte[] 結果 = (byte[]) Array.newInstance(this.selectedClass, this.arrayLength);
+					byte[] ���� = (byte[]) Array.newInstance(this.selectedClass, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						結果[k] = (Byte) comboBox.getSelectedItem();
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						����[k] = (Byte) comboBox.getSelectedItem();
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}else if(Short.class.equals(this.selectedClass)){
-					short[] 結果 = (short[]) Array.newInstance(this.selectedClass, this.arrayLength);
+					short[] ���� = (short[]) Array.newInstance(this.selectedClass, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						結果[k] = (Short) comboBox.getSelectedItem();
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						����[k] = (Short) comboBox.getSelectedItem();
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}else if(Integer.class.equals(this.selectedClass))/*Integer.class.equals(selectedClass.getClass())*/{
-					int[] 結果 = (int[]) Array.newInstance(int.class, this.arrayLength);
+					int[] ���� = (int[]) Array.newInstance(int.class, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						if(checkType(comboBox)){//Stringである
-							結果[k] = Integer.valueOf((String) comboBox.getSelectedItem());
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						if(checkType(comboBox)){//String�ł���
+							����[k] = Integer.valueOf((String) comboBox.getSelectedItem());
 						}else{
-							結果[k] = (Integer)comboBox.getSelectedItem();
+							����[k] = (Integer)comboBox.getSelectedItem();
 						}
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}else if(Long.class.equals(this.selectedClass)){
-					long[] 結果 = (long[]) Array.newInstance(this.selectedClass, this.arrayLength);
+					long[] ���� = (long[]) Array.newInstance(this.selectedClass, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						結果[k] = (Long)comboBox.getSelectedItem();
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						����[k] = (Long)comboBox.getSelectedItem();
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}else if(Float.class.equals(this.selectedClass)){
-					float[] 結果 = (float[]) Array.newInstance(this.selectedClass, this.arrayLength);
+					float[] ���� = (float[]) Array.newInstance(this.selectedClass, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						結果[k] = (Float)comboBox.getSelectedItem();
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						����[k] = (Float)comboBox.getSelectedItem();
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}else if(Double.class.equals(this.selectedClass)){
-					double[] 結果 = (double[]) Array.newInstance(this.selectedClass, this.arrayLength);
+					double[] ���� = (double[]) Array.newInstance(this.selectedClass, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						結果[k] = (Double) comboBox.getSelectedItem();
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						����[k] = (Double) comboBox.getSelectedItem();
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}else if(Boolean.class.equals(this.selectedClass)){
-					boolean[] 結果 = (boolean[]) Array.newInstance(this.selectedClass, this.arrayLength);
+					boolean[] ���� = (boolean[]) Array.newInstance(this.selectedClass, this.arrayLength);
 					int k = 0;
-					for(JComboBox comboBox :this.配列要素入力コンボボックスアレイ){
-						結果[k] = (Boolean) comboBox.getSelectedItem();
+					for(JComboBox comboBox :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+						����[k] = (Boolean) comboBox.getSelectedItem();
 						k++;
 					}
-					this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
-					this.mdls.get生成済オブジェクトのコンボボックスモデル().addElement(結果);
+					this.mdls.getListModel().addElement(����);
+					this.mdls.getComboBoxModel().addElement(����);
 				}
 			}else {
-				Object[] 結果= (Object[]) Array.newInstance(this.selectedClass, this.arrayLength);
+				Object[] ����= (Object[]) Array.newInstance(this.selectedClass, this.arrayLength);
 				int k = 0;
-				for(JComboBox element :this.配列要素入力コンボボックスアレイ){
-					System.out.println(element.getSelectedItem()+": " + element.getSelectedItem().getClass());
-					結果[k] = element.getSelectedItem();
+				for(JComboBox element :this.�z��v�f���̓R���{�{�b�N�X�A���C){
+					//System.out.println(element.getSelectedItem()+": " + element.getSelectedItem().getClass());
+					����[k] = element.getSelectedItem();
 					k++;
 				}
-				this.mdls.get生成済オブジェクトのリストモデル().addElement(結果);
+				this.mdls.getListModel().addElement(����);
+				this.mdls.getComboBoxModel().addElement(����);
 			}
 		} catch (Throwable e) {
 			this.ea.writeException(e);

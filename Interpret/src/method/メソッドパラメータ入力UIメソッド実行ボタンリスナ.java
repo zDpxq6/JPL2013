@@ -5,22 +5,25 @@ import java.lang.reflect.Method;
 
 import javax.swing.JComboBox;
 
-import openingScreen.Models;
-
 import component.ExceptionArea;
+import component.Models;
 
 
-public class ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ implements ActionListener {
+public class ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“ƒŠƒXƒi implements ActionListener {
 
 	private final Method selectedMethod;
-	private final JComboBox[] ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
+	private final JComboBox[] ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
 	private final Models mdls;
 	private final ExceptionArea ea;
-	public ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ(Method selectedMethod, JComboBox[] ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤, Models mdls,ExceptionArea ea) {
+	private final Object obj;
+
+	public ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“ƒŠƒXƒi(Method selectedMethod, Object obj, JComboBox[] ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC, Models mdls,ExceptionArea ea) {
 		this.selectedMethod = selectedMethod;
-		this.ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
+		this.ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
 		this.mdls = mdls;
 		this.ea = ea;
+		this.obj = obj;
+		System.out.println("‚±‚±‚Ü‚ÅOK");
 	}
 
 	@Override
@@ -30,7 +33,7 @@ public class ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒªã‚
 		Object[] parameterArray = new Object[methodParameterTypeArray.length];
 		Object tmp = null;
 		int i = 0;
-		for(JComboBox comboBox :this.ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤){
+		for(JComboBox comboBox :this.ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC){
 			String type = methodParameterTypeArray[i].toString();
 			if("char".equals(type)){
 				char[] charArray = ((String) comboBox.getSelectedItem()).toCharArray();
@@ -40,7 +43,7 @@ public class ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒªã‚
 			}else if("short".equals(type)){
 				tmp = Short.valueOf((String) comboBox.getSelectedItem());
 			}else if("int".equals(type)){
-				System.out.println("å‹: " + comboBox.getSelectedItem().getClass());
+				System.out.println("Œ^: " + comboBox.getSelectedItem().getClass());
 				tmp = Integer.valueOf((String) comboBox.getSelectedItem());
 			}else if("long".equals(type)){
 				tmp = Long.valueOf((String) comboBox.getSelectedItem());
@@ -56,10 +59,10 @@ public class ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒªã‚
 			parameterArray[i] = tmp;
 			i++;
 		}
-			//æ¡ä»¶åˆ†å²ãŒå…¥ã‚‹(void,primitiveä»¥å¤–ã¯è¿½åŠ )
-			Object createdInstance = this.selectedMethod.invoke(this, parameterArray);
+			//ğŒ•ªŠò‚ª“ü‚é(void,primitiveˆÈŠO‚Í’Ç‰Á)
+			Object createdInstance = this.selectedMethod.invoke(this.obj, parameterArray);
 			if(createdInstance instanceof Object){
-				this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒªã‚¹ãƒˆãƒ¢ãƒ‡ãƒ«().addElement(createdInstance);
+				this.mdls.getListModel().addElement(createdInstance);
 			}
 		} catch (Throwable e) {
 			this.ea.writeException(e);

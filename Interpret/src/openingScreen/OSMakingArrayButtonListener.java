@@ -1,7 +1,7 @@
 package openingScreen;
 
 
-//å‚è€ƒ http://d.hatena.ne.jp/kya-zinc/20121216
+//Ql http://d.hatena.ne.jp/kya-zinc/20121216
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,7 +9,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 import component.ExceptionArea;
-
+import component.Models;
 import creatingArray.MakingArrayScreen;
 
 public class OSMakingArrayButtonListener implements ActionListener {

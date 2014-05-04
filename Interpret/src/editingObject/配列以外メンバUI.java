@@ -3,24 +3,21 @@ import java.awt.GridLayout;
 import java.lang.reflect.Field;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import openingScreen.Models;
-
 import component.CommonInputPanel;
 import component.ExceptionArea;
+import component.Models;
 
 import constant.Const;
-import creatingArray.MakingArrayScreen;
 import ex16_Interpret.MethodListPane;
-import ex16_Interpret.ãƒ¡ãƒ³ãƒUIãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®šãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ;
+import ex16_Interpret.ƒƒ“ƒoUIƒtƒB[ƒ‹ƒhŒˆ’èƒ{ƒ^ƒ“ƒŠƒXƒi;
 
 
-public class é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUI extends JFrame {
+public class ”z—ñˆÈŠOƒƒ“ƒoUI extends JFrame {
 	/**
 	 *
 	 */
@@ -28,16 +25,15 @@ public class é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUI extends JFrame {
 	private final Object selectedInstance;
 	private final Models mdls;
 	private final ExceptionArea ea;
-	private final JComboBox[] é…åˆ—è¦ç´ ç·¨é›†ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = null;
-	private final Field[] ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—;
-	private JComboBox[] ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
+	private final Field[] ƒtƒB[ƒ‹ƒh”z—ñ;
+	private JComboBox[] ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
 
 	private static final long serialVersionUID = 1L;
 
-	public é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUI(Object selectedInstance, Models mdls, ExceptionArea ea){
-		super(Const.ãƒ¡ãƒ³ãƒUIã‚¿ã‚¤ãƒˆãƒ«);
+	public ”z—ñˆÈŠOƒƒ“ƒoUI(Object selectedInstance, Models mdls, ExceptionArea ea){
+		super(Const.ƒƒ“ƒoUIƒ^ƒCƒgƒ‹);
 		this.selectedInstance = selectedInstance;
-		this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ— = this.selectedInstance.getClass().getDeclaredFields();
+		this.ƒtƒB[ƒ‹ƒh”z—ñ = this.selectedInstance.getClass().getDeclaredFields();
 		this.mdls = mdls;
 		this.ea = ea;
 		init();
@@ -45,59 +41,45 @@ public class é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUI extends JFrame {
 
 	private void init(){
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		this.setSize(Const.ãƒ¡ãƒ³ãƒUIå¹…, Const.ãƒ¡ãƒ³ãƒUIé«˜ã•);
+		this.setSize(Const.ƒƒ“ƒoUI•, Const.ƒƒ“ƒoUI‚‚³);
 		this.setLocationRelativeTo(null);
-		this.setLayout(new GridLayout(1,2));//1è¡Œ2åˆ—ã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
+		this.setLayout(new GridLayout(1,2));//1s2—ñ‚ÌƒŒƒCƒAƒEƒg
 
 		try{
-			add(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒ‘ãƒãƒ«ã®ç”Ÿæˆ());
-			add(new MethodListPane(this.selectedInstance.getClass(), new é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUIãƒ¡ã‚½ãƒƒãƒ‰é¸æŠãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ(null, this.mdls, this.ea), this.mdls, this.ea));//ãªãŠã—ãŸã„
+			add(ƒtƒB[ƒ‹ƒhƒpƒlƒ‹‚Ì¶¬());
+			add(new MethodListPane(this.selectedInstance, new ”z—ñˆÈŠOƒƒ“ƒoUIƒƒ\ƒbƒh‘I‘ğƒ}ƒEƒXƒŠƒXƒi(null, this.selectedInstance, this.mdls, this.ea), this.mdls, this.ea));//‚È‚¨‚µ‚½‚¢
 		}catch(Throwable e){
 			this.ea.writeException(e);
 		}
 	}
 
-	protected JPanel ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒ‘ãƒãƒ«ã®ç”Ÿæˆ() throws IllegalArgumentException, IllegalAccessException{
+	protected JPanel ƒtƒB[ƒ‹ƒhƒpƒlƒ‹‚Ì¶¬() throws IllegalArgumentException, IllegalAccessException{
 		JPanel result = new JPanel();
-		result.setLayout(new GridLayout(this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—.length+1,1));
+		result.setLayout(new GridLayout(this.ƒtƒB[ƒ‹ƒh”z—ñ.length+1,1));
 
-		JPanel[] jPanelArray = new JPanel[this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—.length];
-		this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = new JComboBox[this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—.length];
+		JPanel[] jPanelArray = new JPanel[this.ƒtƒB[ƒ‹ƒh”z—ñ.length];
+		this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = new JComboBox[this.ƒtƒB[ƒ‹ƒh”z—ñ.length];
 		int i = 0;
 
 		for (JPanel element : jPanelArray) {
 			element = new JPanel();
 			element.setLayout(new GridLayout(1, 3));
-			element.add(new JLabel(this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].toString()));
-			int ã‚µã‚¤ã‚º = this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().getSize();
-			DefaultComboBoxModel éåŒæœŸç”¨ = new DefaultComboBoxModel();//åˆæœŸå€¤ã ã‘ç‰¹åˆ¥ã«è¨­å®šã™ã‚‹
-			this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-			éåŒæœŸç”¨.addElement(this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].get(this.selectedInstance));
+			element.add(new JLabel(this.ƒtƒB[ƒ‹ƒh”z—ñ[i].toString()));
+			int ƒTƒCƒY = this.mdls.getComboBoxModel().getSize();
+			DefaultComboBoxModel ”ñ“¯Šú—p = new DefaultComboBoxModel();//‰Šú’l‚¾‚¯“Á•Ê‚Éİ’è‚·‚é
+			this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+			”ñ“¯Šú—p.addElement(this.ƒtƒB[ƒ‹ƒh”z—ñ[i].get(this.selectedInstance));
 
-			for (int k = 0; k < ã‚µã‚¤ã‚º; k++) {
-				éåŒæœŸç”¨.addElement(this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().getElementAt(k));
+			for (int k = 0; k < ƒTƒCƒY; k++) {
+				”ñ“¯Šú—p.addElement(this.mdls.getComboBoxModel().getElementAt(k));
 			}
-			this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i] = new JComboBox(éåŒæœŸç”¨);
-			element.add(this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i]);
-			element.add(new JButton("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ"));
+			this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i] = new JComboBox(”ñ“¯Šú—p);
+			this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i].setEditable(true);
+			element.add(this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i]);
 			result.add(element);
 			i++;
 		}
-		result.add(CommonInputPanel.makeCommonButton("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®š",new ãƒ¡ãƒ³ãƒUIãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®šãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ(this.selectedInstance, this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤, this.ea)));
+		result.add(CommonInputPanel.makeCommonButton("ƒtƒB[ƒ‹ƒhŒˆ’è",new ƒƒ“ƒoUIƒtƒB[ƒ‹ƒhŒˆ’èƒ{ƒ^ƒ“ƒŠƒXƒi(this.selectedInstance, this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC, this.ea)));
 		return result;
-	}
-
-	private void addPanels(int ãƒ‘ãƒãƒ«æ•°){
-		JPanel[] result = new JPanel[ãƒ‘ãƒãƒ«æ•°];
-
-		JComboBox[] é…åˆ—è¦ç´ å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = new JComboBox[ãƒ‘ãƒãƒ«æ•°];
-		int i = 0;
-		for (JPanel element : result) {
-			this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i] = MakingArrayScreen.ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ç”Ÿæˆ(this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«());
-			JPanel tmp = new CommonInputPanel(new JLabel(this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].toString()), this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i], Const.OPENING_SCREEN_MAKE_OBJECT_BUTTON_LABEL, null);
-			element = tmp;
-			this.add(element);
-			i++;
-		}
 	}
 }

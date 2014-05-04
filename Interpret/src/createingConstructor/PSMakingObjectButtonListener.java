@@ -8,22 +8,21 @@ import java.lang.reflect.Constructor;
 import javax.swing.JComboBox;
 import javax.swing.SwingUtilities;
 
-import openingScreen.Models;
-
 import component.ExceptionArea;
+import component.Models;
 
 
 public class PSMakingObjectButtonListener implements ActionListener {
 
 	private final Constructor<?> selectedConstructor;
-	private final JComboBox[] ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
+	private final JComboBox[] ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
 	private final Models mdls;
 	private final ExceptionArea ea;
 	private static final String CLASS_NAME = PSMakingObjectButtonListener.class.toString();
 
-	public PSMakingObjectButtonListener(Constructor<?> selectedConstructor, Models mdls,JComboBox[] ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤, ExceptionArea ea){
+	public PSMakingObjectButtonListener(Constructor<?> selectedConstructor, Models mdls,JComboBox[] ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC, ExceptionArea ea){
 		this.selectedConstructor = selectedConstructor;
-		this.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
+		this.ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
 		this.mdls = mdls;
 		this.ea = ea;
 	}
@@ -31,58 +30,56 @@ public class PSMakingObjectButtonListener implements ActionListener {
 	@Override
 	public void actionPerformed( ActionEvent arg0) {
 		try {
-			Class<?>[] é¸æŠã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å‹é…åˆ— = this.selectedConstructor.getParameterTypes();
-			Object[] é¸æŠã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿é…åˆ— = new Object[é¸æŠã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å‹é…åˆ—.length];
+			Class<?>[] ‘I‘ğ‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^‚ÌŒ^”z—ñ = this.selectedConstructor.getParameterTypes();
+			Object[] ‘I‘ğ‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^”z—ñ = new Object[‘I‘ğ‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^‚ÌŒ^”z—ñ.length];
 
 			int i = 0;
-			for(JComboBox comboBox :this.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤){
-				Class<?> type = é¸æŠã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å‹é…åˆ—[i];	//æ±‚ã‚ã‚‰ã‚Œã‚‹å‹
-				Object ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤= null;
-				Object å–å¾—å€¤ = null;
+			for(JComboBox comboBox :this.ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC){
+				Class<?> type = ‘I‘ğ‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^‚ÌŒ^”z—ñ[i];	//‹‚ß‚ç‚ê‚éŒ^
+				Object ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l= null;
+				Object æ“¾’l = null;
 				if(comboBox.getSelectedIndex() < 0){
-					å–å¾—å€¤ = comboBox.getSelectedItem();
-					System.out.println("å–å¾—å€¤ã®å‹: ");
-					if(type == Character.TYPE || type == Character.class){//æ±‚ã‚ã‚‰ã‚Œã‚‹å‹ãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã‹ãƒ©ãƒƒãƒ‘ãªã‚‰
-						char[] charArray = ((String) å–å¾—å€¤).toCharArray();
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = charArray[0];
-					}else if(type == Byte.TYPE || type == Byte.class){//æ±‚ã‚ã‚‰ã‚Œã‚‹å‹ãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã‹ãƒ©ãƒƒãƒ‘ãªã‚‰
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = Byte.valueOf((String) comboBox.getSelectedItem());
+					æ“¾’l = comboBox.getSelectedItem();
+					System.out.println("æ“¾’l‚ÌŒ^: ");
+					if(type == Character.TYPE || type == Character.class){//‹‚ß‚ç‚ê‚éŒ^‚ªƒvƒŠƒ~ƒeƒBƒu‚©ƒ‰ƒbƒp‚È‚ç
+						char[] charArray = ((String) æ“¾’l).toCharArray();
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = charArray[0];
+					}else if(type == Byte.TYPE || type == Byte.class){//‹‚ß‚ç‚ê‚éŒ^‚ªƒvƒŠƒ~ƒeƒBƒu‚©ƒ‰ƒbƒp‚È‚ç
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = Byte.valueOf((String) comboBox.getSelectedItem());
 					}else if(type == Short.TYPE || type == Short.class){
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = Short.valueOf((String) comboBox.getSelectedItem());
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = Short.valueOf((String) comboBox.getSelectedItem());
 					}else if(type == Integer.TYPE || type == Integer.class){// || type == Integer.class.toString()){
 						System.out.println(comboBox.getSelectedItem().getClass());
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = Integer.valueOf((String) comboBox.getSelectedItem());
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = Integer.valueOf((String) comboBox.getSelectedItem());
 					}else if(type == Long.TYPE || type == Long.class){
 						System.out.println(comboBox.getSelectedItem().getClass());
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = Long.valueOf((String) comboBox.getSelectedItem());
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = Long.valueOf((String) comboBox.getSelectedItem());
 					}else if(type == Float.TYPE || type == Float.class){
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = Float.valueOf((String) comboBox.getSelectedItem());
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = Float.valueOf((String) comboBox.getSelectedItem());
 					}else if(type == Double.TYPE || type == Double.class){
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = Double.valueOf((String) comboBox.getSelectedItem());
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = Double.valueOf((String) comboBox.getSelectedItem());
 					}else if(type == Boolean.TYPE || type == Boolean.class){
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = Boolean.valueOf((String) comboBox.getSelectedItem());
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = Boolean.valueOf((String) comboBox.getSelectedItem());
 					} else {
-						ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = comboBox.getSelectedItem();
+						ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = comboBox.getSelectedItem();
 					}
 				} else {
-					ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ = comboBox.getSelectedItem();
+					ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l = comboBox.getSelectedItem();
 				}
-				é¸æŠã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿é…åˆ—[i] = ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«å…¥åŠ›ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤;
+				‘I‘ğ‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^”z—ñ[i] = ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É“ü—Í‚µ‚½ƒpƒ‰ƒ[ƒ^‚Ì’l;
 				i++;
 			}
-			Object createdInstance = this.selectedConstructor.newInstance(é¸æŠã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿é…åˆ—);
-			this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒªã‚¹ãƒˆãƒ¢ãƒ‡ãƒ«().addElement(createdInstance);
-			this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().addElement(createdInstance);
+			Object createdInstance = this.selectedConstructor.newInstance(‘I‘ğ‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^”z—ñ);
+			this.mdls.addElement(createdInstance);
 		} catch (Throwable e) {
 			this.ea.writeException(e);
-			System.out.println("ç”Ÿã˜ãŸå ´æ‰€: " + CLASS_NAME);
 		}finally{
 			Window w = SwingUtilities.getWindowAncestor((Component) arg0.getSource());
 			w.dispose();
 		}
 	}
 
-	private static boolean é©å½“ãªåå‰(String type, Class<?> p2){
+	private static boolean “K“–‚È–¼‘O(String type, Class<?> p2){
 		boolean result = true;
 		if(type == "boolean" || p2 == boolean.class && p2 == Boolean.class/*type == "boolean" && p2 == boolean.class || type == "boolean" && p2 == Boolean.class*/){
 			result = false;

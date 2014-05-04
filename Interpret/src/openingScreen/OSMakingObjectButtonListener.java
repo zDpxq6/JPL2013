@@ -1,15 +1,15 @@
 package openingScreen;
 
 
-//ÂèÇËÄÉ http://d.hatena.ne.jp/kya-zinc/20121216
+//éQçl http://d.hatena.ne.jp/kya-zinc/20121216
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
 import component.ExceptionArea;
-
-import createingConstructor.ListScreen;
+import component.Models;
+import createingConstructor.ConstructorListScreen;
 
 public class OSMakingObjectButtonListener implements ActionListener {
 
@@ -29,7 +29,7 @@ public class OSMakingObjectButtonListener implements ActionListener {
 			String className= this.tf.getText();
 			Class <?> selectedClass = Class.forName(className);
 			@SuppressWarnings("unused")
-			ListScreen cui = new ListScreen(selectedClass, this.mdls, this.ea);
+			ConstructorListScreen cui = new ConstructorListScreen(selectedClass, this.mdls, this.ea);
 		} catch (Throwable e) {
 			this.ea.writeException(e);
 		}

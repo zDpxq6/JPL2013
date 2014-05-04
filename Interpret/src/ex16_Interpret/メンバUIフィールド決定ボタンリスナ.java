@@ -12,57 +12,63 @@ import javax.swing.SwingUtilities;
 import component.ExceptionArea;
 
 
-public class ãƒ¡ãƒ³ãƒUIãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®šãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ implements ActionListener {
-	private Object selectedInstance;
+public class ƒƒ“ƒoUIƒtƒB[ƒ‹ƒhŒˆ’èƒ{ƒ^ƒ“ƒŠƒXƒi implements ActionListener {
+	private final Object selectedInstance;
 	private final ExceptionArea ea;
-	private final JComboBox[] ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
-	private final Field[] ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—;
+	private final JComboBox[] ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
+	private final Field[] ƒtƒB[ƒ‹ƒh”z—ñ;
 
-	public ãƒ¡ãƒ³ãƒUIãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®šãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ(Object selectedInstance2, JComboBox[] ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤, ExceptionArea ea) {
-		this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ— = selectedInstance2.getClass().getDeclaredFields();
-		this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
+	public ƒƒ“ƒoUIƒtƒB[ƒ‹ƒhŒˆ’èƒ{ƒ^ƒ“ƒŠƒXƒi(Object selectedInstance, JComboBox[] ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC, ExceptionArea ea) {
+		this.selectedInstance = selectedInstance;
+		this.ƒtƒB[ƒ‹ƒh”z—ñ = selectedInstance.getClass().getDeclaredFields();
+		this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
 		this.ea = ea;
 	}
 
 	@Override
 	public void actionPerformed( ActionEvent arg0) {
 		try {
-			Class<?>[] ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ— = new Class<?>[this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤.length];
+			Class<?>[] ƒtƒB[ƒ‹ƒhŒ^”z—ñ = new Class<?>[this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC.length];
 			int i = -1;
-			for(JComboBox comboBox :this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤){
+			for(JComboBox comboBox :this.ƒtƒB[ƒ‹ƒh“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC){
 				i++;
-				ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i] = this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].getType();
+				ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i] = this.ƒtƒB[ƒ‹ƒh”z—ñ[i].getType();
 
-				int mod = ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i].getModifiers();
+				int mod = this.ƒtƒB[ƒ‹ƒh”z—ñ[i].getModifiers();
 
-				if(!Modifier.isStatic(mod) && !Modifier.isFinal(mod)){
-					if(Character.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setChar(this.selectedInstance, (Character)comboBox.getSelectedItem());
-					}else if(Byte.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setByte(this.selectedInstance, (Byte)comboBox.getSelectedItem());
-					}else if(Short.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setShort(this.selectedInstance, (Short)comboBox.getSelectedItem());
-					}else if(Integer.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setInt(this.selectedInstance, (Integer) comboBox.getSelectedItem());
-					}else if(Long.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setLong(this.selectedInstance, (Long) comboBox.getSelectedItem());
-					}else if(Float.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setFloat(this.selectedInstance, (Float)comboBox.getSelectedItem());
-					}else if(Double.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setDouble(this.selectedInstance, (Double)comboBox.getSelectedItem());
-					}else if(Boolean.TYPE.equals(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹é…åˆ—[i])){
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setBoolean(this.selectedInstance, (Boolean) comboBox.getSelectedItem());
+				if(Modifier.isStatic(mod)){
+					System.out.print("static ");
+					if(Modifier.isFinal(mod)){
+						System.out.println("final");
+					}
+				}else {
+					if(Character.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setChar(this.selectedInstance, (Character)comboBox.getSelectedItem());
+					}else if(Byte.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setByte(this.selectedInstance, (Byte)comboBox.getSelectedItem());
+					}else if(Short.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setShort(this.selectedInstance, (Short)comboBox.getSelectedItem());
+					}else if(Integer.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setInt(this.selectedInstance, (Integer) comboBox.getSelectedItem());
+					}else if(Long.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setLong(this.selectedInstance, (Long) comboBox.getSelectedItem());
+					}else if(Float.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setFloat(this.selectedInstance, (Float)comboBox.getSelectedItem());
+					}else if(Double.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setDouble(this.selectedInstance, (Double)comboBox.getSelectedItem());
+					}else if(Boolean.TYPE.equals(ƒtƒB[ƒ‹ƒhŒ^”z—ñ[i])){
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setBoolean(this.selectedInstance, (Boolean) comboBox.getSelectedItem());
 					} else {
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].setAccessible(true);
-						this.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—[i].set(this.selectedInstance,comboBox.getSelectedItem());
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].setAccessible(true);
+						this.ƒtƒB[ƒ‹ƒh”z—ñ[i].set(this.selectedInstance,comboBox.getSelectedItem());
 					}
 				}
 			}

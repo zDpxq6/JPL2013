@@ -2,52 +2,85 @@ package createingConstructor;
 import java.awt.GridLayout;
 import java.lang.reflect.Constructor;
 
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import openingScreen.Models;
-
 import component.CommonButton;
 import component.CommonInputPanel;
 import component.ExceptionArea;
+import component.Models;
 
 import constant.Const;
 
 public class ParameterScreen extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	public ParameterScreen(Constructor<?> selectedConstructor, Models mdls ,ExceptionArea ea) {
-		super(Const.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIã‚¿ã‚¤ãƒˆãƒ«);
-		setSize(Const.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIå¹…, Const.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIé«˜ã•);
-		setLocationRelativeTo(null);
+	private final Constructor<?> selectedConstructor;
+	private final Models mdls;
+	private final ExceptionArea ea;
+//	private JList jl;//–¢g—p
+
+	public ParameterScreen(Constructor<?> selectedConstructor, Models mdls, ExceptionArea ea) {
+		super(Const.CONSTRUCTOR_LIST_SCREEN_TITLE);
+		this.selectedConstructor = selectedConstructor;
+		this.mdls = mdls;
+		this.ea = ea;
+		this.init();
+	}
+
+	private void init(){
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setSize(Const.CONSTRUCTOR_LIST_SCREEN_FRAME_WIDTH, Const.CONSTRUCTOR_SCREEN_FRAME_HIGHT);
 
-		Class<?>[] constructorParameterTypeArray = selectedConstructor.getParameterTypes();
+		Class<?>[] constructorParameterTypeArray = this.selectedConstructor.getParameterTypes();
+		setLayout(new GridLayout(constructorParameterTypeArray.length + 1, 1));
+		JComboBox[] ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = createComboBoxArray(this.selectedConstructor);
 
-		int length = constructorParameterTypeArray.length;
-
-		setLayout(new GridLayout(length + 1, 1));
-
-		JComboBox[] ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = new JComboBox[length];
-		for (int i= 0; i < length; i++) {
-
-			int ã‚µã‚¤ã‚º = 1 + mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().getSize();
-			DefaultComboBoxModel éåŒæœŸç”¨ = new DefaultComboBoxModel();
-			éåŒæœŸç”¨.addElement(new String(""));
-			for (int k = 1; k < ã‚µã‚¤ã‚º; k++) {
-				éåŒæœŸç”¨.addElement(mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().getElementAt(k));
-			}
-			ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i] = new JComboBox(éåŒæœŸç”¨);
-			ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i].setEditable(true);
-
-			add(new CommonInputPanel(new JLabel(constructorParameterTypeArray[i].toString()), ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i], "ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ", null));
+		for(int i= 0; i < constructorParameterTypeArray.length; i++){
+			add(new CommonInputPanel(new JLabel(constructorParameterTypeArray[i].toString()), ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i], "ƒIƒuƒWƒFƒNƒg¶¬", null, false));
 		}
-		add(new CommonButton(Const.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆãƒœã‚¿ãƒ³ãƒ©ãƒ™ãƒ«,new PSMakingObjectButtonListener(selectedConstructor, mdls, ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤,ea)));
+
+		add(new CommonButton(Const.CONSTRUCTOR_LIST_SCREEN_MAKING_OBJECT_BUTTON_LABEL,new PSMakingObjectButtonListener(this.selectedConstructor, this.mdls, ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC,this.ea)));
 		setVisible(true);
 	}
 
+	private JComboBox[] createComboBoxArray (Constructor<?> selectedConstructor){
+		Class<?>[] paramTypeArr = this.selectedConstructor.getParameterTypes();//‰½“x‚©g‚¤‚½‚ß€”õ
+		JComboBox[] result = new JComboBox[paramTypeArr.length];
+		for (int i= 0; i < paramTypeArr.length; i++) {//ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ÌŒÂ”
+			ComboBoxModel inputComboboxModel = createInputComboBoxModel(this.mdls.getComboBoxModel());
+			result[i] = new JComboBox(inputComboboxModel);
+			result[i].setEditable(true);
+		}
+		return result;
+	}
 
+	public static ComboBoxModel createInputComboBoxModel(ComboBoxModel source){
+		ComboBoxModel inputComboboxModel = new DefaultComboBoxModel();
+		int k = 0;
+		int size = source.getSize();
 
+		if(source.getElementAt(0) != null){
+			((DefaultComboBoxModel) inputComboboxModel).insertElementAt(null,0);
+		}else{
+			size++;
+		}
+		for (; k < size; k++) {//ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ì’†g‚ÌˆÚA
+			((DefaultComboBoxModel) inputComboboxModel).addElement(source.getElementAt(k));
+		}
+		inputComboboxModel.setSelectedItem(null);
+		return inputComboboxModel;
+	}
+
+	public static ComboBoxModel copyComboBox(ComboBoxModel source){
+		DefaultComboBoxModel inputComboboxModel = new DefaultComboBoxModel();
+		for (int k = 0; k < source.getSize(); k++) {//ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ì’†g‚ÌˆÚA
+			inputComboboxModel.addElement(source.getElementAt(k));
+		}
+		return inputComboboxModel;
+	}
 }
