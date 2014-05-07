@@ -11,13 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-import openingScreen.Models;
-
 import component.CommonButton;
 import component.CommonInputPanel;
 import component.ExceptionArea;
+import component.Models;
 
 import constant.Const;
+import createingConstructor.ParameterScreen;
 
 public class MakingArrayScreen extends JFrame {
 	/**
@@ -30,10 +30,10 @@ public class MakingArrayScreen extends JFrame {
 	private final ExceptionArea ea;
 	private final Models mdls;
 	private final int arrayLength;
-	JComboBox[] é…åˆ—è¦ç´ å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤;
+	JComboBox[] ”z—ñ—v‘f“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC;
 
 	public MakingArrayScreen( Class<?> selectedClass, JSpinner sp, Models mdls, ExceptionArea ea) {
-		super(Const.é…åˆ—è¦ç´ å…¥åŠ›UI);
+		super(Const.”z—ñ—v‘f“ü—ÍUI);
 		this.selectedClass = selectedClass;
 		this.ea = ea;
 		this.mdls = mdls;
@@ -41,49 +41,50 @@ public class MakingArrayScreen extends JFrame {
 		init(this);
 	}
 
-	private void init(MakingArrayScreen é…åˆ—å…¥åŠ›ç”»é¢){
-		int è¦ç´ æ•° = this.arrayLength;
+	private void init(MakingArrayScreen ”z—ñ“ü—Í‰æ–Ê){
+		int —v‘f” = this.arrayLength;
 
-		é…åˆ—å…¥åŠ›ç”»é¢.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		é…åˆ—å…¥åŠ›ç”»é¢.setLayout(new GridLayout(è¦ç´ æ•° + 2, 1));
-		é…åˆ—å…¥åŠ›ç”»é¢.setLocationRelativeTo(null);
-		é…åˆ—å…¥åŠ›ç”»é¢.setSize(Const.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIå¹…, Const.ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIé«˜ã•);
+		”z—ñ“ü—Í‰æ–Ê.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		”z—ñ“ü—Í‰æ–Ê.setLayout(new GridLayout(—v‘f” + 2, 1));
+		”z—ñ“ü—Í‰æ–Ê.setLocationRelativeTo(null);
+		”z—ñ“ü—Í‰æ–Ê.setSize(Const.CONSTRUCTOR_LIST_SCREEN_FRAME_WIDTH, Const.CONSTRUCTOR_SCREEN_FRAME_HIGHT);
 
 		JCheckBox chb = new JCheckBox();
-		é…åˆ—å…¥åŠ›ç”»é¢.add(ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ‘ãƒãƒ«ã®ç”Ÿæˆ(chb));
-		é…åˆ—å…¥åŠ›ç”»é¢.addPanels(è¦ç´ æ•°);
-		é…åˆ—å…¥åŠ›ç”»é¢.add(new CommonButton("ç”Ÿæˆ", new MAMakingArrayButtonListener(this.selectedClass, chb, this.é…åˆ—è¦ç´ å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤, this.mdls,this.ea)));
+		”z—ñ“ü—Í‰æ–Ê.add(ƒ`ƒFƒbƒNƒ{ƒbƒNƒXƒpƒlƒ‹‚Ì¶¬(chb));
+		”z—ñ“ü—Í‰æ–Ê.addPanels(—v‘f”);
+		”z—ñ“ü—Í‰æ–Ê.add(new CommonButton("¶¬", new MAMakingArrayButtonListener(this.selectedClass, chb, this.”z—ñ—v‘f“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC, this.mdls,this.ea)));
 
-		é…åˆ—å…¥åŠ›ç”»é¢.setVisible(true);
+		”z—ñ“ü—Í‰æ–Ê.setVisible(true);
 	}
 
-	private static JPanel ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ‘ãƒãƒ«ã®ç”Ÿæˆ(JCheckBox chb) {
-		JPanel ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ‘ãƒãƒ« = new JPanel();
-		ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ‘ãƒãƒ«.setLayout(new GridLayout(1,2));
+	private static JPanel ƒ`ƒFƒbƒNƒ{ƒbƒNƒXƒpƒlƒ‹‚Ì¶¬(JCheckBox chb) {
+		JPanel ƒ`ƒFƒbƒNƒ{ƒbƒNƒXƒpƒlƒ‹ = new JPanel();
+		ƒ`ƒFƒbƒNƒ{ƒbƒNƒXƒpƒlƒ‹.setLayout(new GridLayout(1,2));
 
-		ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ‘ãƒãƒ«.add(new JLabel("ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–é…åˆ—ã«ã™ã‚‹"));
-		ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ‘ãƒãƒ«.add(chb);
+		ƒ`ƒFƒbƒNƒ{ƒbƒNƒXƒpƒlƒ‹.add(new JLabel("ƒvƒŠƒ~ƒeƒBƒu”z—ñ‚É‚·‚é"));
+		ƒ`ƒFƒbƒNƒ{ƒbƒNƒXƒpƒlƒ‹.add(chb);
 
-		return ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ‘ãƒãƒ«;
+		return ƒ`ƒFƒbƒNƒ{ƒbƒNƒXƒpƒlƒ‹;
 	}
 
-	public static JComboBox ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ç”Ÿæˆ(DefaultComboBoxModel è¤‡è£½ã—ãŸã„ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«){
+	public static JComboBox ƒRƒ“ƒ{ƒ{ƒbƒNƒX¶¬(DefaultComboBoxModel •¡»‚µ‚½‚¢ƒRƒ“ƒ{ƒ{ƒbƒNƒXƒ‚ƒfƒ‹){
 		DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
-		for (int k = 0; k < è¤‡è£½ã—ãŸã„ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«.getSize(); k++) {
-			comboBoxModel.addElement(è¤‡è£½ã—ãŸã„ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«.getElementAt(k));
+		for (int k = 0; k < •¡»‚µ‚½‚¢ƒRƒ“ƒ{ƒ{ƒbƒNƒXƒ‚ƒfƒ‹.getSize(); k++) {
+			comboBoxModel.addElement(•¡»‚µ‚½‚¢ƒRƒ“ƒ{ƒ{ƒbƒNƒXƒ‚ƒfƒ‹.getElementAt(k));
 		}
 		JComboBox result = new JComboBox(comboBoxModel);
+		result.setEditable(true);
 		return result;
 	}
 
-	private void addPanels(int ãƒ‘ãƒãƒ«æ•°){
-		JPanel[] result = new JPanel[ãƒ‘ãƒãƒ«æ•°];
+	private void addPanels(int ƒpƒlƒ‹”){
+		JPanel[] result = new JPanel[ƒpƒlƒ‹”];
 
-		this.é…åˆ—è¦ç´ å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = new JComboBox[ãƒ‘ãƒãƒ«æ•°];
+		this.”z—ñ—v‘f“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = new JComboBox[ƒpƒlƒ‹”];
 		int i = 0;
 		for (JPanel element : result) {
-			this.é…åˆ—è¦ç´ å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i] = ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ç”Ÿæˆ(this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«());
-			JPanel tmp = new CommonInputPanel(new JLabel("è¦ç´ " + i + ": "), this.é…åˆ—è¦ç´ å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i], Const.OPENING_SCREEN_MAKE_OBJECT_BUTTON_LABEL, null);//å®šæ•°.ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¿ãƒ¼ãƒˆUIã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆé–‹å§‹ãƒœã‚¿ãƒ³ãƒ©ãƒ™ãƒ«, new ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¿ãƒ¼ãƒˆUIã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆé–‹å§‹ãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ()));
+			this.”z—ñ—v‘f“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i] = new JComboBox(ParameterScreen.createInputComboBoxModel(this.mdls.getComboBoxModel()));
+			JPanel tmp = new CommonInputPanel(new JLabel("—v‘f" + i + ": "), this.”z—ñ—v‘f“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i], Const.OPENING_SCREEN_MAKE_OBJECT_BUTTON_LABEL, null, false);//’è”.ƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒXƒ^[ƒgUIƒIƒuƒWƒFƒNƒg¶¬ŠJnƒ{ƒ^ƒ“ƒ‰ƒxƒ‹, new ƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒXƒ^[ƒgUIƒIƒuƒWƒFƒNƒg¶¬ŠJnƒ{ƒ^ƒ“ƒŠƒXƒi()));
 			element = tmp;
 			this.add(element);
 			i++;

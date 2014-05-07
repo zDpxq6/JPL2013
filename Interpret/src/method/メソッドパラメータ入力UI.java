@@ -3,26 +3,25 @@ import java.awt.GridLayout;
 import java.lang.reflect.Method;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import openingScreen.Models;
-
 import component.ExceptionArea;
+import component.Models;
 
 import constant.Const;
+import createingConstructor.ParameterScreen;
 
-public class ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UI extends JFrame {
+public class ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	public ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UI(Method selectedMethod, Models mdls, ExceptionArea ea) {
-		super(Const.ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIã‚¿ã‚¤ãƒˆãƒ«);
-		setSize(Const.ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIå¹…, Const.ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIé«˜ã•);
+	public ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUI(Method selectedMethod, Object obj, Models mdls, ExceptionArea ea) {
+		super(Const.ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒ^ƒCƒgƒ‹);
+		setSize(Const.ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUI•, Const.ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUI‚‚³);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
@@ -30,45 +29,35 @@ public class ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UI extends JFrame {
 
 		setLayout(new GridLayout(methodParameterTypeArray.length + 2, 1));
 
-		JPanel ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ‘ãƒãƒ« = new JPanel();
-		ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ‘ãƒãƒ«.setLayout(new GridLayout(1, 3));
-		ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ‘ãƒãƒ«.add(new JLabel("ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ"));
+		JPanel ƒ^[ƒQƒbƒgƒpƒlƒ‹ = new JPanel();
+		ƒ^[ƒQƒbƒgƒpƒlƒ‹.setLayout(new GridLayout(1, 2));
+		ƒ^[ƒQƒbƒgƒpƒlƒ‹.add(new JLabel("ƒ^[ƒQƒbƒg‚Æ‚È‚éƒIƒuƒWƒFƒNƒg"));
 
-		DefaultListModel dlm = mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒªã‚¹ãƒˆãƒ¢ãƒ‡ãƒ«();
-		int ã‚µã‚¤ã‚º1 = dlm.getSize();
-		DefaultComboBoxModel éåŒæœŸç”¨1 = new DefaultComboBoxModel();
-		for (int k = 0; k < ã‚µã‚¤ã‚º1; k++) {
-			éåŒæœŸç”¨1.addElement( dlm.getElementAt(k));
-		}
-		JComboBox ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ = new JComboBox(éåŒæœŸç”¨1);
-		ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹.setEditable(true);
-		ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ‘ãƒãƒ«.add(ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹);
-		ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ‘ãƒãƒ«.add(new JButton("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ"));
-		add(ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ‘ãƒãƒ«);
+		DefaultComboBoxModel ”ñ“¯Šú—p1 = (DefaultComboBoxModel) ParameterScreen.createInputComboBoxModel(mdls.getComboBoxModel());
+		JComboBox ƒ^[ƒQƒbƒgƒRƒ“ƒ{ƒ{ƒbƒNƒX = new JComboBox(”ñ“¯Šú—p1);
+		ƒ^[ƒQƒbƒgƒRƒ“ƒ{ƒ{ƒbƒNƒX.setEditable(true);
+		ƒ^[ƒQƒbƒgƒpƒlƒ‹.add(ƒ^[ƒQƒbƒgƒRƒ“ƒ{ƒ{ƒbƒNƒX);
+		add(ƒ^[ƒQƒbƒgƒpƒlƒ‹);
 
 		JPanel[] jPanelArray = new JPanel[methodParameterTypeArray.length];
-		JComboBox[] ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = new JComboBox[methodParameterTypeArray.length];
+		JComboBox[] ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = new JComboBox[methodParameterTypeArray.length];
 		int i = 0;
 		for (JPanel element : jPanelArray) {
 			element = new JPanel();
-			element.setLayout(new GridLayout(1, 3));
+			element.setLayout(new GridLayout(1, 2));
 			element.add(new JLabel(methodParameterTypeArray[i].toString()));
-			int ã‚µã‚¤ã‚º = mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().getSize();
-			DefaultComboBoxModel éåŒæœŸç”¨ = new DefaultComboBoxModel();
-			for (int k = 0; k < ã‚µã‚¤ã‚º; k++) {
-				éåŒæœŸç”¨.addElement(mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().getElementAt(k));
-			}
-			ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i] = new JComboBox(éåŒæœŸç”¨);
-			ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i].setEditable(true);
-			element.add(ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i]);
-			element.add(new JButton("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ"));
+			DefaultComboBoxModel ”ñ“¯Šú—p = (DefaultComboBoxModel) ParameterScreen.createInputComboBoxModel(mdls.getComboBoxModel());
+			ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i] = new JComboBox(”ñ“¯Šú—p);
+			ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i].setEditable(true);
+			element.add(ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i]);
 			add(element);
 			i++;
 		}
 
-		JButton ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ = new JButton(Const.ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒ©ãƒ™ãƒ«);
-		ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³.addActionListener(new ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›UIãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ(selectedMethod, ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤, mdls, ea));
-		add(ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œãƒœã‚¿ãƒ³);
+		JButton ƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“ = new JButton(Const.ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“ƒ‰ƒxƒ‹);
+		ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“ƒŠƒXƒi tmp = new ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍUIƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“ƒŠƒXƒi(selectedMethod, obj, ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^“ü—ÍƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC, mdls, ea);
+		ƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“.addActionListener(tmp);
+		add(ƒƒ\ƒbƒhÀsƒ{ƒ^ƒ“);
 
 	}
 

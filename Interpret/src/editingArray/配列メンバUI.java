@@ -12,7 +12,6 @@ import java.util.TreeMap;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,28 +19,25 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import openingScreen.Models;
-
 import component.CommonButton;
-import component.CommonInputPanel;
 import component.ExceptionArea;
+import component.Models;
 
 import constant.Const;
-import creatingArray.MakingArrayScreen;
-import editingObject.é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUIãƒ¡ã‚½ãƒƒãƒ‰é¸æŠãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ;
-import ex16_Interpret.é…åˆ—ãƒ¡ãƒ³ãƒUIãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®šãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ;
+import editingObject.”z—ñˆÈŠOƒƒ“ƒoUIƒƒ\ƒbƒh‘I‘ğƒ}ƒEƒXƒŠƒXƒi;
+import ex16_Interpret.”z—ñƒƒ“ƒoUIƒtƒB[ƒ‹ƒhŒˆ’èƒ{ƒ^ƒ“ƒŠƒXƒi;
 
-public class é…åˆ—ãƒ¡ãƒ³ãƒUI extends JFrame {
+public class ”z—ñƒƒ“ƒoUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	private final Object selectedInstance;
 	private final Models mdls;
 	private final ExceptionArea ea;
-	private JComboBox[] é…åˆ—è¦ç´ ç·¨é›†ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = null;
+	private JComboBox[] ”z—ñ—v‘f•ÒWƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = null;
 
-	public é…åˆ—ãƒ¡ãƒ³ãƒUI(Object selectedInstance, Models mdls, ExceptionArea ea) {
-		super(Const.ãƒ¡ãƒ³ãƒUIã‚¿ã‚¤ãƒˆãƒ«);
+	public ”z—ñƒƒ“ƒoUI(Object selectedInstance, Models mdls, ExceptionArea ea) {
+		super(Const.ƒƒ“ƒoUIƒ^ƒCƒgƒ‹);
 		this.selectedInstance = selectedInstance;
 		this.mdls = mdls;
 		this.ea = ea;
@@ -50,102 +46,87 @@ public class é…åˆ—ãƒ¡ãƒ³ãƒUI extends JFrame {
 
 	private void init() {
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		this.setSize(Const.ãƒ¡ãƒ³ãƒUIå¹…, Const.ãƒ¡ãƒ³ãƒUIé«˜ã•);
+		this.setSize(Const.ƒƒ“ƒoUI•, Const.ƒƒ“ƒoUI‚‚³);
 		this.setLocationRelativeTo(null);
-		this.setLayout(new GridLayout(1, 2));// 1è¡Œ2åˆ—ã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
+		this.setLayout(new GridLayout(1, 2));// 1s2—ñ‚ÌƒŒƒCƒAƒEƒg
 
-		Class<? extends Object> é¸æŠã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã‚¯ãƒ©ã‚¹ = this.selectedInstance.getClass();
+		Class<? extends Object> ‘I‘ğ‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒNƒ‰ƒX = this.selectedInstance.getClass();
 		try {
-			this.add(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒ‘ãƒãƒ«ã®ç”Ÿæˆ(null));
-			this.add(ãƒ¡ã‚½ãƒƒãƒ‰ä¸€è¦§ã®ç”Ÿæˆ(é¸æŠã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã‚¯ãƒ©ã‚¹));
+			this.add(ƒtƒB[ƒ‹ƒhƒpƒlƒ‹‚Ì¶¬(null));
+			this.add(ƒƒ\ƒbƒhˆê——‚Ì¶¬(‘I‘ğ‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒNƒ‰ƒX));
 		} catch (Throwable e) {
 			this.ea.writeException(e);
 		}
 	}
 
-	private void addPanels(int ãƒ‘ãƒãƒ«æ•°) {
-		JPanel[] result = new JPanel[ãƒ‘ãƒãƒ«æ•°];
-
-		JComboBox[] é…åˆ—è¦ç´ å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = new JComboBox[ãƒ‘ãƒãƒ«æ•°];
-		int i = 0;
-		for (JPanel element : result) {
-//			é™çš„å¤‰æ•°.ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¥åŠ›ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i] = MakingArrayScreen.ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ç”Ÿæˆ(this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«());
-			JPanel tmp = new CommonInputPanel(new JLabel(this.é…åˆ—è¦ç´ ç·¨é›†ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i].toString()), MakingArrayScreen.ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ç”Ÿæˆ(this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«()), Const.OPENING_SCREEN_MAKE_OBJECT_BUTTON_LABEL, null);
-			element = tmp;
-			this.add(element);
-			i++;
-		}
-	}
-
-	protected JPanel ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒ‘ãƒãƒ«ã®ç”Ÿæˆ(Field[] ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—) throws IllegalArgumentException, IllegalAccessException {
+	protected JPanel ƒtƒB[ƒ‹ƒhƒpƒlƒ‹‚Ì¶¬(Field[] ƒtƒB[ƒ‹ƒh”z—ñ) throws IllegalArgumentException, IllegalAccessException {
 		JPanel result = new JPanel();
 		result.setLayout(new GridLayout(Array.getLength(this.selectedInstance) + 2, 1));
 
-		result.add(frameå†…ã«ä½•ã®é…åˆ—ã‹ã®èª¬æ˜ã‚’è¡¨ç¤ºã™ã‚‹());
+		result.add(frame“à‚É‰½‚Ì”z—ñ‚©‚Ìà–¾‚ğ•\¦‚·‚é());
 		//
 		JPanel[] jPanelArray = new JPanel[Array.getLength(this.selectedInstance)];
-		System.out.println("@ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒ‘ãƒã®ç”Ÿæˆ");
-		this.é…åˆ—è¦ç´ ç·¨é›†ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤ = new JComboBox[Array.getLength(this.selectedInstance)];
+		this.”z—ñ—v‘f•ÒWƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC = new JComboBox[Array.getLength(this.selectedInstance)];
 		int i = 0;
 		//
 		for (JPanel element : jPanelArray) {
 			element = new JPanel();
 			element.setLayout(new GridLayout(1, 3));
-			element.add(new JLabel("è¦ç´ : " + i));
-			DefaultComboBoxModel é…åˆ—è¦ç´  = new DefaultComboBoxModel();
-			é…åˆ—è¦ç´ .addElement(Array.get(this.selectedInstance, i));// åˆæœŸå€¤ã¯åˆ¥ã«ã—ã¦å…¥ã‚Œã‚‹
-			DefaultComboBoxModel dcbm = this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«();// åˆæœŸå€¤ä»¥é™
-			int ã‚µã‚¤ã‚º = dcbm.getSize();
-			for (int k = 0; k < ã‚µã‚¤ã‚º; k++) {
-				é…åˆ—è¦ç´ .addElement(dcbm.getElementAt(k));
+			element.add(new JLabel("—v‘f: " + i));
+			DefaultComboBoxModel ”z—ñ—v‘f = new DefaultComboBoxModel();
+			”z—ñ—v‘f.addElement(Array.get(this.selectedInstance, i));// ‰Šú’l‚Í•Ê‚É‚µ‚Ä“ü‚ê‚é
+			DefaultComboBoxModel dcbm = this.mdls.getComboBoxModel();// ‰Šú’lˆÈ~
+			int ƒTƒCƒY = dcbm.getSize();
+			for (int k = 0; k < ƒTƒCƒY; k++) {
+				”z—ñ—v‘f.addElement(dcbm.getElementAt(k));
 			}
-			this.é…åˆ—è¦ç´ ç·¨é›†ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i] = new JComboBox(é…åˆ—è¦ç´ );
-			element.add(this.é…åˆ—è¦ç´ ç·¨é›†ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤[i]);
-			element.add(new JButton("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ"));
+			this.”z—ñ—v‘f•ÒWƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i] = new JComboBox(”z—ñ—v‘f);
+			this.”z—ñ—v‘f•ÒWƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i].setEditable(true);
+			element.add(this.”z—ñ—v‘f•ÒWƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC[i]);
 			result.add(element);
 			i++;
 		}
-		result.add(new CommonButton("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®š", new é…åˆ—ãƒ¡ãƒ³ãƒUIãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ±ºå®šãƒœã‚¿ãƒ³ãƒªã‚¹ãƒŠ(this.selectedInstance, this.é…åˆ—è¦ç´ ç·¨é›†ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚¢ãƒ¬ã‚¤, this.ea)));
+		result.add(new CommonButton("ƒtƒB[ƒ‹ƒhŒˆ’è", new ”z—ñƒƒ“ƒoUIƒtƒB[ƒ‹ƒhŒˆ’èƒ{ƒ^ƒ“ƒŠƒXƒi(this.selectedInstance, this.”z—ñ—v‘f•ÒWƒRƒ“ƒ{ƒ{ƒbƒNƒXƒAƒŒƒC, this.ea)));
 		return result;
 	}
 
-	private JPanel frameå†…ã«ä½•ã®é…åˆ—ã‹ã®èª¬æ˜ã‚’è¡¨ç¤ºã™ã‚‹() {
+	private JPanel frame“à‚É‰½‚Ì”z—ñ‚©‚Ìà–¾‚ğ•\¦‚·‚é() {
 		JPanel result = new JPanel();
 		result.setLayout(new GridLayout(1, 2));
-		result.add(new JLabel("é…åˆ—è¦ç´ ã®å‹"));
+		result.add(new JLabel("”z—ñ—v‘f‚ÌŒ^"));
 		Class<?> clazz = this.selectedInstance.getClass().getComponentType();
-		JLabel ãƒ©ãƒ™ãƒ« = new JLabel(clazz.getName());
-		result.add(ãƒ©ãƒ™ãƒ«);
+		JLabel ƒ‰ƒxƒ‹ = new JLabel(clazz.getName());
+		result.add(ƒ‰ƒxƒ‹);
 		return result;
 	}
 
-	private JScrollPane ãƒ¡ã‚½ãƒƒãƒ‰ä¸€è¦§ã®ç”Ÿæˆ(Class é¸æŠã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã‚¯ãƒ©ã‚¹) {
-		Method[] methodArray = é¸æŠã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã‚¯ãƒ©ã‚¹.getMethods();
+	private JScrollPane ƒƒ\ƒbƒhˆê——‚Ì¶¬(Class ‘I‘ğ‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒNƒ‰ƒX) {
+		Method[] methodArray = ‘I‘ğ‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒNƒ‰ƒX.getMethods();
 
 		DefaultListModel methodListModel = new DefaultListModel();
-		Map<String, List<Method>> ä¸¦ã³æ›¿ãˆç”¨Map = new TreeMap<String, List<Method>>();
+		Map<String, List<Method>> •À‚Ñ‘Ö‚¦—pMap = new TreeMap<String, List<Method>>();
 		for (Method obj : methodArray) {
-			if (ä¸¦ã³æ›¿ãˆç”¨Map.containsKey(obj.getName())) {// é‡è¤‡ã™ã‚‹å ´åˆ
-				ä¸¦ã³æ›¿ãˆç”¨Map.get(obj.getName()).add(obj);
-			} else {// é‡è¤‡ã—ãªã„å ´åˆ
+			if (•À‚Ñ‘Ö‚¦—pMap.containsKey(obj.getName())) {// d•¡‚·‚éê‡
+				•À‚Ñ‘Ö‚¦—pMap.get(obj.getName()).add(obj);
+			} else {// d•¡‚µ‚È‚¢ê‡
 				List<Method> method = new LinkedList<Method>();
 				method.add(obj);
-				ä¸¦ã³æ›¿ãˆç”¨Map.put(obj.getName(), method);
+				•À‚Ñ‘Ö‚¦—pMap.put(obj.getName(), method);
 			}
 		}
 
-		Iterator<Map.Entry<String, List<Method>>> tempMapIterator = ä¸¦ã³æ›¿ãˆç”¨Map.entrySet().iterator();
+		Iterator<Map.Entry<String, List<Method>>> tempMapIterator = •À‚Ñ‘Ö‚¦—pMap.entrySet().iterator();
 		while (tempMapIterator.hasNext()) {
 			Map.Entry<String, List<Method>> entry = tempMapIterator.next();
 			entry.getValue();
-			// ãƒªã‚¹ãƒˆã‚’ãƒ«ãƒ¼ãƒ—ã™ã‚‹
+			// ƒŠƒXƒg‚ğƒ‹[ƒv‚·‚é
 			for (Method element : entry.getValue()) {
 				methodListModel.addElement(element);
 			}
 		}
 
 		JList methodList = new JList(methodListModel);
-		methodList.addMouseListener(new é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUIãƒ¡ã‚½ãƒƒãƒ‰é¸æŠãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ(methodList, this.mdls, this.ea));
+		methodList.addMouseListener(new ”z—ñˆÈŠOƒƒ“ƒoUIƒƒ\ƒbƒh‘I‘ğƒ}ƒEƒXƒŠƒXƒi(methodList, this.selectedInstance, this.mdls,this.ea));
 		JScrollPane methodScrollPane = new JScrollPane(methodList);
 		return methodScrollPane;
 	}

@@ -8,9 +8,8 @@ import java.lang.reflect.Constructor;
 import javax.swing.JList;
 import javax.swing.SwingUtilities;
 
-import openingScreen.Models;
-
 import component.ExceptionArea;
+import component.Models;
 
 
 public class LSSelectingMouseListener implements MouseListener {
@@ -19,8 +18,8 @@ public class LSSelectingMouseListener implements MouseListener {
 	private final Models mdls;
 	private final JList jl;
 
-	public LSSelectingMouseListener(ListScreen ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿é¸æŠui, Models mdls, ExceptionArea ea){
-		this.jl = ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿é¸æŠui.getList();
+	public LSSelectingMouseListener(ConstructorListScreen ƒRƒ“ƒXƒgƒ‰ƒNƒ^‘I‘ğui, Models mdls, ExceptionArea ea){
+		this.jl = ƒRƒ“ƒXƒgƒ‰ƒNƒ^‘I‘ğui.getList();
 		this.mdls = mdls;
 		this.ea =ea;
 	}
@@ -28,12 +27,12 @@ public class LSSelectingMouseListener implements MouseListener {
 	@Override
 	public void mouseClicked( MouseEvent arg0) {
 		try {
-			Constructor<?> selectedConstructor = (Constructor<?>) this.jl.getSelectedValue();// æŒ‡å®šã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å–å¾—
-			Class<?>[] constructorParameterTypeArray = selectedConstructor.getParameterTypes();// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã®å‹ã‚’å–å¾—
+			Constructor<?> selectedConstructor = (Constructor<?>) this.jl.getSelectedValue();// w’è‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğæ“¾
+			Class<?>[] constructorParameterTypeArray = selectedConstructor.getParameterTypes();// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚ÌŒ^‚ğæ“¾
 			if(constructorParameterTypeArray.length == 0){
 				Object createdInstance = selectedConstructor.newInstance();
-				this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒªã‚¹ãƒˆãƒ¢ãƒ‡ãƒ«().addElement(createdInstance);
-				this.mdls.getç”Ÿæˆæ¸ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ãƒ¢ãƒ‡ãƒ«().addElement(createdInstance);
+				this.mdls.getListModel().addElement(createdInstance);
+				this.mdls.getComboBoxModel().addElement(createdInstance);
 			}else if(0 < constructorParameterTypeArray.length){
 				@SuppressWarnings("unused")
 				ParameterScreen pui = new ParameterScreen(selectedConstructor, this.mdls, this.ea);

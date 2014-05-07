@@ -11,12 +11,10 @@ import java.util.TreeMap;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
-import openingScreen.Models;
-
 import component.ExceptionArea;
 import component.ListPane;
-
-import editingObject.é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUIãƒ¡ã‚½ãƒƒãƒ‰é¸æŠãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ;
+import component.Models;
+import editingObject.”z—ñˆÈŠOƒƒ“ƒoUIƒƒ\ƒbƒh‘I‘ğƒ}ƒEƒXƒŠƒXƒi;
 
 
 public class MethodListPane extends ListPane{
@@ -26,20 +24,20 @@ public class MethodListPane extends ListPane{
 	private final Models mdls;
 	private ExceptionArea ea;
 
-	//JListã‚’å¼•æ•°ã«ã¨ã‚‹ã®ã‚‚ã¤ãã‚‹
+	//JList‚ğˆø”‚É‚Æ‚é‚Ì‚à‚Â‚­‚é
 	public MethodListPane(Object obj, MouseListener i, Models mdls, ExceptionArea ea){
-		super(ãƒ¡ã‚½ãƒƒãƒ‰ä¸€è¦§ã®ç”Ÿæˆ(obj.getClass(), mdls, ea), i);
-		this.methodList = ãƒ¡ã‚½ãƒƒãƒ‰ä¸€è¦§ã®ç”Ÿæˆ(obj.getClass(), mdls, ea);
+		super(ƒƒ\ƒbƒhˆê——‚Ì¶¬(obj, mdls, ea), i);
+		this.methodList = ƒƒ\ƒbƒhˆê——‚Ì¶¬(obj, mdls, ea);
 		this.mdls = mdls;
 	}
 
-	static JList ãƒ¡ã‚½ãƒƒãƒ‰ä¸€è¦§ã®ç”Ÿæˆ(Object obj, Models mdls, ExceptionArea ea){
-		Method[] methodArray = obj.getClass().getMethods();//ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å–å¾—
+	static JList ƒƒ\ƒbƒhˆê——‚Ì¶¬(Object obj, Models mdls, ExceptionArea ea){
+		Method[] methodArray = obj.getClass().getMethods();//ƒƒ\ƒbƒh‚ğæ“¾
 
 		Map <String, List<Method>>sortedMap = makeMethodArray(methodArray);
 
 		JList methodList = new JList(makeListModel(sortedMap));
-		methodList.addMouseListener(new é…åˆ—ä»¥å¤–ãƒ¡ãƒ³ãƒUIãƒ¡ã‚½ãƒƒãƒ‰é¸æŠãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ(methodList, mdls, ea));
+		methodList.addMouseListener(new ”z—ñˆÈŠOƒƒ“ƒoUIƒƒ\ƒbƒh‘I‘ğƒ}ƒEƒXƒŠƒXƒi(methodList, obj, mdls, ea));
 		return methodList;
 	}
 
@@ -60,14 +58,14 @@ public class MethodListPane extends ListPane{
 		return result;
 	}
 
-	private static DefaultListModel makeListModel(Map <String, List<Method>>é©å½“){
-		DefaultListModel methodListModel = new DefaultListModel();//ãƒªã‚¹ãƒˆãƒ¢ãƒ‡ãƒ«ç”Ÿæˆ
+	private static DefaultListModel makeListModel(Map <String, List<Method>>“K“–){
+		DefaultListModel methodListModel = new DefaultListModel();//ƒŠƒXƒgƒ‚ƒfƒ‹¶¬
 
-		Iterator <Map.Entry<String, List<Method>>>tempMapIterator = é©å½“.entrySet().iterator();
+		Iterator <Map.Entry<String, List<Method>>>tempMapIterator = “K“–.entrySet().iterator();
 		while(tempMapIterator.hasNext()){
 			Map.Entry<String, List<Method>> entry = tempMapIterator.next();
 			entry.getValue();
-			//ãƒªã‚¹ãƒˆã‚’ãƒ«ãƒ¼ãƒ—ã™ã‚‹
+			//ƒŠƒXƒg‚ğƒ‹[ƒv‚·‚é
 			for(Method element:entry.getValue()){
 				methodListModel.addElement(element);
 			}

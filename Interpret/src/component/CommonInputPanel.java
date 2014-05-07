@@ -18,12 +18,14 @@ public class CommonInputPanel extends JPanel{
 
 	private static final GridLayout LABEL_INPUT_BUTTON_LAYOUT = new GridLayout(1, 3);
 
-	public CommonInputPanel(JLabel label, JComponent inputComponent, String buttonLabel, ActionListener actionListener){
+	public CommonInputPanel(JLabel label, JComponent inputComponent, String buttonLabel, ActionListener actionListener, boolean flag){
 		super();
 		this.setLayout(LABEL_INPUT_BUTTON_LAYOUT);
 		this.add(label);
 		this.add(inputComponent);
-		this.add(makeCommonButton(buttonLabel, actionListener));
+		if(flag == true) {
+			this.add(makeCommonButton(buttonLabel, actionListener));
+		}
 	}
 
 	public static JButton makeCommonButton(String buttonLabel, ActionListener i) {
