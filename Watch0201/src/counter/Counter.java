@@ -17,7 +17,6 @@ public class Counter implements Runnable{
 		while (true) {
 
 			this.service.execute();
-
 			try
 			{
 				Thread.sleep(Const.REFRESH_INTERVAL);
