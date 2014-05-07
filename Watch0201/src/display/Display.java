@@ -37,6 +37,7 @@ public class Display extends JFrame implements InterfaceForCounterClient{
 		this.setVisible(true);
 		this.setSize( Const.FRAME_WIDTH, Const.FRAME_HEIGHT );
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
+		this.setResizable(false);
 		add(new MyPanel());
 	}
 
@@ -57,6 +58,7 @@ public class Display extends JFrame implements InterfaceForCounterClient{
 
 	@Override
 	public void execute() {
+		this.setSize(this.panel.getSize());
 		repaint();
 	}
 
