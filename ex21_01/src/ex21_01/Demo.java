@@ -1,7 +1,5 @@
 package ex21_01;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,50 +8,49 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Demo {
+	private static final String USERS_TSUGUKA_DESKTOP_DEMO_TXT = "/Users/tsuguka/Desktop/Demo.txt";
+
 	public static void main(String[] args){
-		File file = new File("/Users/tsuguka/Desktop/Demo.txt");
-		FileReader fileReader = null;
+		boolean hasAdded;
+		BufferedFilterReader bufferedFilterReader = null;
+		List <String> resultList = new ArrayList <String> ();
 		try {
-			fileReader = new FileReader(file);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		BufferedReader bufferedReader = new BufferedReader(fileReader);
-		String readString = null;
-		List<String> mySortedList = new ArrayList<String>();
-		try {
-			while((readString = bufferedReader.readLine())!=null){
-				System.out.println(readString);
-				ListIterator<String> ite = mySortedList.listIterator();
-				if(mySortedList.isEmpty()){
-					mySortedList.add(readString);
+			bufferedFilterReader = new BufferedFilterReader(new FileReader(USERS_TSUGUKA_DESKTOP_DEMO_TXT));
+			String readString = null;
+			while(null != (readString = bufferedFilterReader.readLine())){
+				System.out.println("読み込んだ文字列: "+readString);
+				int comparisonResult = -1;
+				if(resultList.size() == 0){
+					resultList.add(readString);
 				} else {
+					System.out.println("List要素数: " + resultList.size());
+					ListIterator<String> ite = resultList.listIterator();
+					String listElement = null;
+					hasAdded = false;
 					while(ite.hasNext()){
-						String str =ite.next();
-						if(readString.compareTo(str)>0){
-							ite.add(str);
+						listElement = ite.next();
+						System.out.println("listの内容: "+listElement);
+						comparisonResult = readString.compareTo(listElement);
+						if(0 <= comparisonResult){
+							ite.add(readString);
+							hasAdded = true;
 							break;
-						} else {
-							continue;
 						}
 					}
-					ite.add(readString);
+					if(hasAdded == false){
+						resultList.add(0,readString);
+					}
 				}
 			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		if(fileReader != null){
-			try {
-				fileReader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+		} finally {
+			System.out.println("*****RESULT*****");
+			for(String element :  resultList){
+				System.out.println(element);
 			}
-		}
-		System.out.println("***出力***");
-		System.out.println(mySortedList.isEmpty());
-		for(String ele : mySortedList){
-			System.out.println(ele);
 		}
 	}
 }
