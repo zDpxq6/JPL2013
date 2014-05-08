@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stack<E>{
-
+	//ArrayListクラスで定義されているpublicメソッドを使用させたくないため委譲を用いた
 	private final List<E> list = new ArrayList<E>();
 
 	public Stack(){
@@ -29,6 +29,12 @@ public class Stack<E>{
 				this.list.remove(listSize - 1);
 				return (E) result;
 			}
+		}
+	}
+
+	public int size(){
+		synchronized(this){
+			return this.list.size();
 		}
 	}
 
