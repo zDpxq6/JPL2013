@@ -18,12 +18,12 @@ public class AlteredFibonacci {
 	/**
 	 * @param terminationCondition
 	 *            int型のterminationConditionは、生成されるフィボナッチ数列の要素の最大値を決定する。
-	 *            生成されるフィボナッチ数列の要素の最大値は、かならずterminationCondition未満となる。
-	 *            そのため、terminationConditionの最小値は2である。
+	 *            生成されるフィボナッチ数列の要素の最大値は、かならずterminationCondition以下となる。
+	 *            そのため、terminationConditionの最小値は1である。
 	 * @return terminationConditionで指定された条件を満たすAlteredFibonacciクラスのインスタンス
 	 * */
 	public static AlteredFibonacci createAlteredFibonacci(int terminationCondition) {
-		if(terminationCondition < 2){
+		if(terminationCondition <= 1){
 			throw new IllegalArgumentException();
 		}
 		AlteredFibonacci altFib = new AlteredFibonacci();
@@ -34,7 +34,7 @@ public class AlteredFibonacci {
 	private void makeFibonacci(int loopTerminationCondition) {
 		int low = 0;
 		int high = 1;
-		while (high < loopTerminationCondition) {
+		while (high <= loopTerminationCondition) {
 			this.fibonacci.add(high);
 			high = high + low; // 新しいhi
 			low = high - low; /*
