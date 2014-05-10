@@ -1,3 +1,4 @@
+//(C) 2014 zDpxq6
 package ex01_03;
 
 import static org.hamcrest.CoreMatchers.is;

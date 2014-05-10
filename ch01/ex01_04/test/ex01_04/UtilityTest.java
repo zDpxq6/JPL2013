@@ -1,8 +1,7 @@
+//(C) 2014 zDpxq6
 package ex01_04;
 
 import org.junit.Test;
-
-import ex01_04.Utility;
 
 public class UtilityTest {
 
