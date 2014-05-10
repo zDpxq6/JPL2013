@@ -1,0 +1,6 @@
+練習問題1.2 HelloWorldのコードを一部変更して、どのようなエラーが発生するか調べて下さい。
+System.out.println()メソッドの引数の閉ダブル・クォートをわざと付けない: 
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	文字列リテラルがダブル・クォートによって正しく閉じられていません
+
+	at ex01_02.Demo.main(Demo.java:6)
