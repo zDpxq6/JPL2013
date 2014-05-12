@@ -1,5 +1,5 @@
 //(C) 2014 zDpxq6
-package ex01_10;
+package ex01_12;
 
 public class ImprovedFibonacci {
 

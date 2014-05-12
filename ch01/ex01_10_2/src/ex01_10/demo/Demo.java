@@ -1,7 +1,11 @@
 //(C) 2014 zDpxq6
-package ex01_10;
+package ex01_10.demo;
 
 import java.util.List;
+
+import ex01_10.AlteredFibonacci;
+import ex01_10.EvenMarkFilter;
+import ex01_10.Utility;
 
 
 //練習問題1.3 Fibonacciプログラムの出力リストにタイトルを追加しなさい
