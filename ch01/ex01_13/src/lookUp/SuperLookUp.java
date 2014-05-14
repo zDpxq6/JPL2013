@@ -1,6 +1,6 @@
 package lookUp;
 
-import ex01_13.LookUp;
+import ex01_15.LookUp;
 
 public interface SuperLookUp extends LookUp{
 	/** nameと関連付けられた値を返す

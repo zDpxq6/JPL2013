@@ -1,5 +1,5 @@
 //(C) 2014 zDpxq6
-package ex01_12;
+package ex01_13;
 
 public interface Filter<INPUT_ARGUMENT_TYPE> {
 	public boolean isConditionFulfilled(INPUT_ARGUMENT_TYPE target);

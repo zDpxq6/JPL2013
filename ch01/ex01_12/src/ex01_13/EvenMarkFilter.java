@@ -1,5 +1,5 @@
 //(C) 2014 zDpxq6
-package ex01_12;
+package ex01_13;
 
 public class EvenMarkFilter<INPUT_ARGUMENT_TYPE> implements Filter<INPUT_ARGUMENT_TYPE> {
 	private static final int EVEN_CONDITION = 2;

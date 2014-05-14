@@ -1,5 +1,5 @@
 //(C) 2014 zDpxq6
-package ex01_12;
+package ex01_13;
 
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ex01_12.Utility;
+import ex01_13.Utility;
 
 public class UtilityTest {
 

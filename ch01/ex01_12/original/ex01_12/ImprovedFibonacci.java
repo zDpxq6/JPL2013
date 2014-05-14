@@ -20,7 +20,7 @@ public class ImprovedFibonacci {
 			} else {
 				mark = "";
 			}
-			System.out.println(i + ": " + hi + mark);
+			System.out.printf("%d: %d %s\n",i,hi,mark);
 			hi = lo + hi;
 			lo = hi - lo;
 		}

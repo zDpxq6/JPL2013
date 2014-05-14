@@ -1,5 +1,7 @@
 //(C) 2014 zDpxq6
-package ex01_12;
+package ex01_13;
+
+import java.util.Arrays;
 
 
 //練習問題1.12 ImprovedFibonacciを修正してprintlnで文字列を直接表示するのではなく、Stringオブジェクトを作成して配列に入れるようにしてみてください
@@ -11,6 +13,6 @@ public class Demo {
 		AlteredImprovedFibonacci altFib = AlteredImprovedFibonacci.createAlteredFibonacci(TERMINATING_CONDITION);
 		System.out.println(TITLE);
 		Object[] resultList= Utility.analyzeList(altFib.getFibonacci(), new EvenMarkFilter<Integer>(null));
-		Utility.printList(resultList);
+		Utility.printListWithIndex(Arrays.asList(resultList));
 	}
 }

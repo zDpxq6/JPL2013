@@ -1,5 +1,5 @@
 //(C) 2014 zDpxq6
-package ex01_12;
+package ex01_13;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -36,8 +36,7 @@ public class Utility {
 		Iterator<E> ite = list.iterator();
 		for (int counter = list.size(); 0 < counter; counter--) {
 			E element = ite.next();
-			System.out.print(counter + SEPARATOR);
-			System.out.println(element);
+			System.out.printf("%d%s%s\n",counter,SEPARATOR,element);
 		}
 	}
 
