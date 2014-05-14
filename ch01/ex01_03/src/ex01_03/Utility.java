@@ -7,6 +7,7 @@ import java.util.List;
 //練習問題1.3 Fibonacciプログラムの出力リストにタイトルを追加しなさい
 /**
  * @auther zDpxq6
+ * UtilityクラスはFibonacciクラスの「フィボナッチ数列の出力」の責務を抽出し、「List型オブジェクトの出力」へ抽象化したクラスである。
  * */
 public class Utility {
 	/**

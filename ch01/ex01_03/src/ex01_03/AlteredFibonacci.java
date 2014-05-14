@@ -7,6 +7,8 @@ import java.util.List;
 //練習問題1.3 Fibonacciプログラムの出力リストにタイトルを追加しなさい
 /**
  * @auther zDpxq6
+ * AlteredFibonacciクラスはFibonacciクラスの「フィボナッチ数列の生成」の責務を抽出したクラスである。
+ *
  * */
 public class AlteredFibonacci {
 	private final List<Integer> fibonacci = new LinkedList<Integer>();
@@ -44,7 +46,7 @@ public class AlteredFibonacci {
 	}
 
 	/**
-	 * @return フィボナッチ数列
+	 * @return IntegerのList型のフィボナッチ数列
 	 */
 	public List<Integer> getFibonacci() {
 		return this.fibonacci;

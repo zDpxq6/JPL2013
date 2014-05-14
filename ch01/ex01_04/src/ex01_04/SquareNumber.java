@@ -7,6 +7,7 @@ import java.util.List;
 //練習問題1.4 何らかの数列を生成するプログラムを作成しなさい。例えば、平方表とか
 /**
  * @auther zDpxq6
+ * SquareNumberは平方表を作成するクラス
  * */
 public class SquareNumber {
 	private final List<Integer> squareNumber = new LinkedList<Integer>();

@@ -23,7 +23,7 @@ public class AlteredFibonacciTest {
 	}
 
 	@Test
-	public void testCreationFail() {
+	public void testIncorrectCreation() {
 		try{
 			@SuppressWarnings("unused")
 			AlteredFibonacci altFib = AlteredFibonacci.createAlteredFibonacci(0);

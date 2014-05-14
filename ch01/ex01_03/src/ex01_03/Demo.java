@@ -1,6 +1,7 @@
 //(C) 2014 zDpxq6
 package ex01_03;
 
+
 //練習問題1.3 Fibonacciプログラムの出力リストにタイトルを追加しなさい
 public class Demo {
 	private static final String TITLE = "*****Output*****";
