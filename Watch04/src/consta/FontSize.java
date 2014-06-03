@@ -4,7 +4,7 @@ package consta;
 public enum FontSize{
 	SMALL_FONT {
 		@Override
-		public int getFontSize() {
+		public Integer getFontSize() {
 			return Const.SMALL_FONT_SIZE;
 		}
 
@@ -16,7 +16,7 @@ public enum FontSize{
 
 	MEDIUM_FONT {
 		@Override
-		public int getFontSize() {
+		public Integer getFontSize() {
 			return Const.MIDIUM_FONT_SIZE;
 		}
 
@@ -29,7 +29,7 @@ public enum FontSize{
 
 	LARGE_FONT {
 		@Override
-		public int getFontSize() {
+		public Integer getFontSize() {
 			return Const.LARGE_FONT_SIZE;
 		}
 
@@ -39,8 +39,8 @@ public enum FontSize{
 		}
 	};
 
-	public int getFontSize() {
-		return 0;
+	public Integer getFontSize() {
+		return -1;
 	}
 
 

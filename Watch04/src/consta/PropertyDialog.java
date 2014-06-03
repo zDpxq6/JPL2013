@@ -112,7 +112,7 @@ public class PropertyDialog extends JDialog {
 		this.mFontSizeList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				int selected = ((consta.FontSize)PropertyDialog.this.mFontSizeList.getSelectedValue()).getFontSize();
+				int selected = (Integer) PropertyDialog.this.mFontSizeList.getSelectedValue();
 				PropertyDialog.this.mDataHolder.setFontSize(selected);
 			}
 		});
