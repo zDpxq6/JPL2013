@@ -26,9 +26,8 @@ public class SettingDataHolder{
 
 	}
 
-	public void setFontStyle(int plain) {
-		// TODO 自動生成されたメソッド・スタブ
-
+	public void setFont(String fontName) {
+		this.display.setFont(fontName);
 	}
 
 	public void setFontType(String monospaced) {

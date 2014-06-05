@@ -13,7 +13,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -28,8 +27,8 @@ public class PropertyDialog extends JDialog {
 
 	// フィールド
 	private final SettingDataHolder mDataHolder;
-	private JList mFontTypeList;
-	private JList mFontStyleList;
+
+	private JList mFontList;
 	private JList mFontSizeList;
 
 	private JList fontColorList;
@@ -49,17 +48,13 @@ public class PropertyDialog extends JDialog {
 		GridBagConstraints gridBagConstraints = new GridBagConstraints();
 
 		// 各項目の設定
-		initFontTypeList();
-		initFontStyleList();
+		initFontList();
 		initFontSizeList();
 		initFontColorList();
 		initBackgroundColorList();
 
-		addLabel	(0, 0, Const.FONT, layout, gridBagConstraints);
-		addList	(0, 1, this.mFontTypeList, layout, gridBagConstraints);
-
 		addLabel	(1, 0, Const.FONT_STYLE, layout, gridBagConstraints);
-		addList	(1, 1, this.mFontStyleList, layout, gridBagConstraints);
+		addList	(1, 1, this.mFontList, layout, gridBagConstraints);
 
 		addLabel	(2, 0, Const.FONT_SIZE, layout, gridBagConstraints);
 		addList	(2, 1, this.mFontSizeList, layout, gridBagConstraints);
@@ -81,25 +76,21 @@ public class PropertyDialog extends JDialog {
 		addBtn(2, 4, button, layout, gridBagConstraints);
 	}
 
-	/**
-	 * フォントタイプの設定項目を初期化します
-	 */
-	private void initFontTypeList() {
-		String[] items = { Const.FONT_SERIF, Const.FONT_SANS_SERIF, Const.FONT_MONOSPACED };
-		this.mFontTypeList = new JList(items);
-		this.mFontTypeList.setSelectedIndex(0);
-		this.mFontTypeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.mFontTypeList.addListSelectionListener(new FontTypeListener());
-	}
+
 
 	/**
 	 * フォントスタイルの設定項目を初期化します
 	 */
-	private void initFontStyleList() {
-		String[] items = { Const.FONT_NORMAL, Const.FONT_BOLD, Const.FONT_ITALIC };
-		this.mFontStyleList = new JList(items);
-		this.mFontStyleList.setSelectedIndex(0);
-		this.mFontStyleList.addListSelectionListener(new FontStyleListener());
+	private void initFontList() {
+		String[] items = { Font.DIALOG, Font.DIALOG_INPUT, Font.MONOSPACED, Font.SANS_SERIF, Font.SERIF };
+		this.mFontList = new JList(items);
+		this.mFontList.setSelectedIndex(0);
+		this.mFontList.addListSelectionListener(new ListSelectionListener(){
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				PropertyDialog.this.mDataHolder.setFont(PropertyDialog.this.mFontList.getSelectedValue().toString());
+			}
+		});
 	}
 
 	/**
@@ -198,39 +189,5 @@ public class PropertyDialog extends JDialog {
 		gbc.insets = new Insets(20, 0, 0, 0);
 		gbl.setConstraints(btn, gbc);
 		add(btn);
-	}
-
-	/**
-	 * フォントタイプのリストが選択された時の処理を定義します
-	 */
-	private class FontTypeListener implements ListSelectionListener {
-		@Override
-		public void valueChanged(ListSelectionEvent e) {
-			String selected = PropertyDialog.this.mFontTypeList.getSelectedValue().toString();
-			if (selected.equals(Const.FONT_MONOSPACED)) {
-				PropertyDialog.this.mDataHolder.setFontType(Font.MONOSPACED);
-			} else if (selected.equals(Const.FONT_SERIF)) {
-				PropertyDialog.this.mDataHolder.setFontType(Font.SERIF);
-			} else {
-				PropertyDialog.this.mDataHolder.setFontType(Font.SANS_SERIF);
-			}
-		}
-	}
-
-	/**
-	 * フォントスタイルのリストが選択された時の処理を定義します
-	 */
-	private class FontStyleListener implements ListSelectionListener {
-		@Override
-		public void valueChanged(ListSelectionEvent e) {
-			String selected = PropertyDialog.this.mFontStyleList.getSelectedValue().toString();
-			if (selected.equals(Const.FONT_NORMAL)) {
-				PropertyDialog.this.mDataHolder.setFontStyle(Font.PLAIN);
-			} else if (selected.equals(Const.FONT_BOLD)) {
-				PropertyDialog.this.mDataHolder.setFontStyle(Font.BOLD);
-			} else {
-				PropertyDialog.this.mDataHolder.setFontStyle(Font.ITALIC);
-			}
-		}
 	}
 }

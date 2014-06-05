@@ -21,13 +21,13 @@ public class Const {
 	public static final String LIST_ANALOG_COLOR = "AnalogColor";
 	public static final String LIST_BACKGROUND_COLOR = "BackgroundColor";
 
-	// フォントタイプ
-	public static final String FONT_MONOSPACED = "Monospaced";
-	public static final String FONT_SERIF = "Serif";
-	public static final String FONT_SANS_SERIF = "SansSerif";
+//	// フォントタイプ
+//	public static final String FONT_MONOSPACED = "Monospaced";
+//	public static final String FONT_SERIF = "Serif";
+//	public static final String FONT_SANS_SERIF = "SansSerif";
 
 	// フォントスタイル
-	public static final String FONT_NORMAL = "標準";
+	public static final String FONT_PLANE = "標準";
 	public static final String FONT_BOLD = "太字";
 	public static final String FONT_ITALIC = "斜体";
 

@@ -19,6 +19,7 @@ import java.awt.image.BufferedImage;
 
 import constant.Const;
 import constant.FontSize;
+import constant.Fonts;
 import constant.PropertyDialog;
 import constant.SettingDataHolder;
 import counter.Counter;
@@ -36,9 +37,10 @@ public class Display extends Frame implements InterfaceForCounterClient {
 	public void setFontSize(int fontSize){
 		this.fontSize = fontSize;
 	}
+
 	Color fontColor = Color.black;
 
-	String Fonts = "Monospaced";
+	String fonts = Fonts.MONOSPACED.toString();
 	Color backgroundColor = Color.red;
 
 	int stringWidth;
@@ -100,7 +102,7 @@ public class Display extends Frame implements InterfaceForCounterClient {
 	@Override
 	public void paint(Graphics graphics) {
 		this.graphics.setColor(this.fontColor);
-		this.graphics.setFont(new Font(this.Fonts, Font.PLAIN, this.fontSize));
+		this.graphics.setFont(new Font(this.fonts, Font.PLAIN, this.fontSize));
 		this.fontMetrics = this.graphics.getFontMetrics();
 		this.message = String.format("%02d:%02d:%02d", Watch.getHour(), Watch.getMinute(), Watch.getSecond());
 		this.stringWidth = this.fontMetrics.stringWidth(this.message);
@@ -128,6 +130,10 @@ public class Display extends Frame implements InterfaceForCounterClient {
 
 	public void setBackgroundColor(Color test){
 		this.backgroundColor= test;
+	}
+
+	public void setFont(String fontName) {
+		this.fonts = fontName;
 	}
 
 }
