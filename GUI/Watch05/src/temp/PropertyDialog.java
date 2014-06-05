@@ -18,7 +18,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.prefs.Preferences;
 
-import consta.Const;
+import constant.Const;
 
 public class PropertyDialog extends Dialog implements ActionListener {
 	/**

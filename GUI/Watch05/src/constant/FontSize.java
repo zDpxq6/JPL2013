@@ -1,4 +1,4 @@
-package consta;
+package constant;
 
 
 public enum FontSize{

@@ -1,4 +1,4 @@
-package consta;
+package constant;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -112,7 +112,7 @@ public class PropertyDialog extends JDialog {
 		this.mFontSizeList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				int selected = ((consta.FontSize)PropertyDialog.this.mFontSizeList.getSelectedValue()).getFontSize();
+				int selected = ((constant.FontSize)PropertyDialog.this.mFontSizeList.getSelectedValue()).getFontSize();
 				PropertyDialog.this.mDataHolder.setFontSize(selected);
 			}
 		});
@@ -129,7 +129,7 @@ public class PropertyDialog extends JDialog {
 		this.fontColorList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				Color selected = ((consta.Colour)PropertyDialog.this.fontColorList.getSelectedValue()).getColour();
+				Color selected = ((constant.Colour)PropertyDialog.this.fontColorList.getSelectedValue()).getColour();
 				PropertyDialog.this.mDataHolder.setFontColor(selected);
 			}
 		});
@@ -146,7 +146,7 @@ public class PropertyDialog extends JDialog {
 		this.backgroundColorList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				Color selected = ((consta.Colour)PropertyDialog.this.backgroundColorList.getSelectedValue()).getColour();
+				Color selected = ((constant.Colour)PropertyDialog.this.backgroundColorList.getSelectedValue()).getColour();
 				PropertyDialog.this.mDataHolder.setBackgroundColor(selected);
 			}
 		});

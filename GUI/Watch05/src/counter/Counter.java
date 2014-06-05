@@ -1,5 +1,5 @@
 package counter;
-import consta.Const;
+import constant.Const;
 
 
 public class Counter implements Runnable{

@@ -17,10 +17,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
-import consta.Const;
-import consta.FontSize;
-import consta.PropertyDialog;
-import consta.SettingDataHolder;
+import constant.Const;
+import constant.FontSize;
+import constant.PropertyDialog;
+import constant.SettingDataHolder;
 import counter.Counter;
 import counter.InterfaceForCounterClient;
 
