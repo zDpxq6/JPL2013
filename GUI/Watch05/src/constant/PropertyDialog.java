@@ -17,30 +17,37 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import display.Display;
+import enumeration.Colour;
 
 /**
  * ダイアログに関する設定を行うクラス
  */
 public class PropertyDialog extends JDialog {
 
+	private static final int DIALOG_WIDTH = 240;
+	private static final int DIALOG_HIGHT = 240;
+
+	private static final int DIALOG_ELEMENT_HIGHT = 120;
+
 	private static final long serialVersionUID = 1L;
 
-	// フィールド
-	private final SettingDataHolder mDataHolder;
+	private static final int DIALOG_ELEMENT_WIDTH = 120;
 
-	private JList mFontList;
-	private JList mFontSizeList;
+	private final SettingDataHolder dataHolder;
+
+	private JList fontTypeList;
+	private JList fontSizeList;
 
 	private JList fontColorList;
 	private JList backgroundColorList;
 
-	private final Dimension mListSize = new Dimension(120, 120);
+	private final Dimension listSize = new Dimension(DIALOG_ELEMENT_HIGHT, DIALOG_ELEMENT_WIDTH);
 
 	public PropertyDialog(Display owner, SettingDataHolder holder) {
 		super(owner);
-		this.mDataHolder = holder;
+		this.dataHolder = holder;
 		setResizable(false); // サイズ変更不可
-		setSize(500, 450);
+		setSize(500,500);
 		setTitle(Const.TITLE);
 
 		GridBagLayout layout= new GridBagLayout();
@@ -53,11 +60,11 @@ public class PropertyDialog extends JDialog {
 		initFontColorList();
 		initBackgroundColorList();
 
-		addLabel	(1, 0, Const.FONT_STYLE, layout, gridBagConstraints);
-		addList	(1, 1, this.mFontList, layout, gridBagConstraints);
+		addLabel	(0, 0, Const.FONT, layout, gridBagConstraints);
+		addList	(0, 1, this.fontTypeList, layout, gridBagConstraints);
 
-		addLabel	(2, 0, Const.FONT_SIZE, layout, gridBagConstraints);
-		addList	(2, 1, this.mFontSizeList, layout, gridBagConstraints);
+		addLabel	(1, 0, Const.FONT_SIZE, layout, gridBagConstraints);
+		addList	(1, 1, this.fontSizeList, layout, gridBagConstraints);
 
 		addLabel	(0, 2, Const.FONT_COLOR, layout, gridBagConstraints);
 		addList	(0, 3, this.fontColorList, layout, gridBagConstraints);
@@ -83,12 +90,12 @@ public class PropertyDialog extends JDialog {
 	 */
 	private void initFontList() {
 		String[] items = { Font.DIALOG, Font.DIALOG_INPUT, Font.MONOSPACED, Font.SANS_SERIF, Font.SERIF };
-		this.mFontList = new JList(items);
-		this.mFontList.setSelectedIndex(0);
-		this.mFontList.addListSelectionListener(new ListSelectionListener(){
+		this.fontTypeList = new JList(items);
+		this.fontTypeList.setSelectedIndex(0);
+		this.fontTypeList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				PropertyDialog.this.mDataHolder.setFont(PropertyDialog.this.mFontList.getSelectedValue().toString());
+				PropertyDialog.this.dataHolder.setFont(PropertyDialog.this.fontTypeList.getSelectedValue().toString());
 			}
 		});
 	}
@@ -98,13 +105,13 @@ public class PropertyDialog extends JDialog {
 	 */
 	private void initFontSizeList() {
 		Object[] items = {	Const.SMALL_FONT_SIZE, Const.MIDIUM_FONT_SIZE, Const.LARGE_FONT_SIZE };
-		this.mFontSizeList = new JList(items);
-		this.mFontSizeList.setSelectedIndex(0);
-		this.mFontSizeList.addListSelectionListener(new ListSelectionListener(){
+		this.fontSizeList = new JList(items);
+		this.fontSizeList.setSelectedIndex(0);
+		this.fontSizeList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				int selected = ((constant.FontSize)PropertyDialog.this.mFontSizeList.getSelectedValue()).getFontSize();
-				PropertyDialog.this.mDataHolder.setFontSize(selected);
+				int i = (Integer) PropertyDialog.this.fontSizeList.getSelectedValue();
+				PropertyDialog.this.dataHolder.setFontSize(i);
 			}
 		});
 	}
@@ -120,8 +127,9 @@ public class PropertyDialog extends JDialog {
 		this.fontColorList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				Color selected = ((constant.Colour)PropertyDialog.this.fontColorList.getSelectedValue()).getColour();
-				PropertyDialog.this.mDataHolder.setFontColor(selected);
+				@SuppressWarnings("unchecked")
+				Color selected = ((EnumInterfaceforClient<Color>)PropertyDialog.this.fontColorList.getSelectedValue()).getValue();
+				PropertyDialog.this.dataHolder.setFontColor(selected);
 			}
 		});
 	}
@@ -137,8 +145,8 @@ public class PropertyDialog extends JDialog {
 		this.backgroundColorList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				Color selected = ((constant.Colour)PropertyDialog.this.backgroundColorList.getSelectedValue()).getColour();
-				PropertyDialog.this.mDataHolder.setBackgroundColor(selected);
+				Color selected = ((enumeration.Colour)PropertyDialog.this.backgroundColorList.getSelectedValue()).getValue();
+				PropertyDialog.this.dataHolder.setBackgroundColor(selected);
 			}
 		});
 	}
@@ -164,7 +172,7 @@ public class PropertyDialog extends JDialog {
 	 */
 	private void addList(int x, int y, JList list, GridBagLayout gbl, GridBagConstraints gbc) {
 		JScrollPane sp = new JScrollPane(list);
-		sp.setPreferredSize(this.mListSize);
+		sp.setPreferredSize(this.listSize);
 		gbc.gridx = x;
 		gbc.gridy = y;
 		gbc.gridwidth = 1;

@@ -18,12 +18,12 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
 import constant.Const;
-import constant.FontSize;
-import constant.Fonts;
 import constant.PropertyDialog;
 import constant.SettingDataHolder;
 import counter.Counter;
 import counter.InterfaceForCounterClient;
+import enumeration.FontSize;
+import enumeration.Fonts;
 
 public class Display extends Frame implements InterfaceForCounterClient {
 
@@ -32,7 +32,7 @@ public class Display extends Frame implements InterfaceForCounterClient {
 	private final BufferedImage bufferedImage = new BufferedImage(Const.FRAME_WIDTH, Const.FRAME_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 	private Graphics2D graphics = (Graphics2D) this.bufferedImage.getGraphics();
 
-	int fontSize = FontSize.LARGE_FONT.getFontSize();
+	int fontSize = FontSize.LARGE_FONT.getValue();
 
 	public void setFontSize(int fontSize){
 		this.fontSize = fontSize;

@@ -54,8 +54,6 @@ public class Const {
 
 	public static final String FONT_SIZE = "フォントサイズ";
 
-	public static final String FONT_STYLE = "フォントスタイル";
-
 	public static final String FONT = "フォント";
 
 	public static final String OK = "OK";
