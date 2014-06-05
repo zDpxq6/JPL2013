@@ -88,7 +88,8 @@ public enum Colour{
 			return "BLACK";
 		}
 
-		public java.awt.Color getColor() {
+		@Override
+		public java.awt.Color getColour() {
 			return java.awt.Color.BLACK;
 		}
 
@@ -99,7 +100,6 @@ public enum Colour{
 	};
 
 	public Color getColour() {
-		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
 

@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import temp.MyListCellRenderer;
 import display.Display;
 import enumeration.Colour;
 
@@ -123,7 +124,8 @@ public class PropertyDialog extends JDialog {
 		Object[] items = {	Colour.WHITE, Colour.BLACK, Colour.RED,
 				Colour.BLUE, Colour.YELLOW, Colour.GREEN };
 		this.fontColorList = new JList(items);
-		this.fontColorList.setSelectedIndex(0);
+		this.fontColorList.setCellRenderer(new MyListCellRenderer());
+		this.fontColorList.setSelectedIndex(2);
 		this.fontColorList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
@@ -141,7 +143,8 @@ public class PropertyDialog extends JDialog {
 		Object[] items = {	Colour.WHITE, Colour.BLACK, Colour.RED,
 				Colour.BLUE, Colour.YELLOW, Colour.GREEN };
 		this.backgroundColorList = new JList(items);
-		this.backgroundColorList.setSelectedIndex(0);
+		this.backgroundColorList.setCellRenderer(new MyListCellRenderer());
+		this.backgroundColorList.setSelectedIndex(1);
 		this.backgroundColorList.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
