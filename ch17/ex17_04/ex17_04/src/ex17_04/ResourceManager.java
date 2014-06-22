@@ -1,4 +1,4 @@
-package ex17_03;
+package ex17_04;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;
@@ -60,11 +60,7 @@ public final class ResourceManager {
 					resource.release();
 					ref.clear();//参照オブジェクトとリソースの結びつきを削除する
 				} catch (InterruptedException e) {
-					if(ResourceManager.this.shutdown && ResourceManager.this.map.size() == 0){
-						break;
-					} else {
-						continue;
-					}
+					break;
 				}
 			}
 		}
