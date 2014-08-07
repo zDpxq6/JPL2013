@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stack<E>{
-	//ArrayListクラスで定義されているpublicメソッドを使用させたくないため委譲を用いた
+	//ArrayListクラスで定義されているpublicメソッドを使用させたくないためフォワードした
 	private final List<E> list = new ArrayList<E>();
 
 	public Stack(){

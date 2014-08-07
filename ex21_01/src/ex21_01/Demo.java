@@ -12,12 +12,12 @@ public class Demo {
 
 	public static void main(String[] args){
 		boolean hasAdded;
-		BufferedFilterReader bufferedFilterReader = null;
+		BufferedFilterReader dataHandler = null;
 		List <String> resultList = new ArrayList <String> ();
 		try {
-			bufferedFilterReader = new BufferedFilterReader(new FileReader(USERS_TSUGUKA_DESKTOP_DEMO_TXT));
+			dataHandler = new BufferedFilterReader(new FileReader(USERS_TSUGUKA_DESKTOP_DEMO_TXT));
 			String readString = null;
-			while(null != (readString = bufferedFilterReader.readLine())){
+			while(null != (readString = dataHandler.readLine())){
 				System.out.println("読み込んだ文字列: "+readString);
 				int comparisonResult = -1;
 				if(resultList.size() == 0){
