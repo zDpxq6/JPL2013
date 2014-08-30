@@ -4,7 +4,7 @@ package ex01_13;
 import java.util.LinkedList;
 import java.util.List;
 
-//練習問題1.3 Fibonacciプログラムの出力リストにタイトルを追加しなさい
+//練習問題1.13 printlnではなく、printfを使用して、ImprovedFibonacciを書き直しなさい。
 /**
  * @auther zDpxq6
  * */

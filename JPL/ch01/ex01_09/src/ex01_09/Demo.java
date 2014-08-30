@@ -7,7 +7,7 @@ public class Demo {
 	private static final int TERMINATING_CONDITION = 50;
 
 	public static void main(String[] args) {
-		AlteredFibonacci altFib = AlteredFibonacci.createAlteredFibonacci(TERMINATING_CONDITION);
+		AlteredImprovedFibonacci altFib = AlteredImprovedFibonacci.createAlteredFibonacci(TERMINATING_CONDITION);
 		System.out.println(TITLE);
 		Utility.printList(altFib.getFibonacci());
 	}

@@ -17,7 +17,7 @@ public class AlteredFibonacci {
 
 	/**
 	 * @param terminationCondition
-	 *            int型のterminationConditionは、生成されるフィボナッチ数列の要素の最大値を決定する。
+	 *            生成されるフィボナッチ数列の要素の最大値を決定する。
 	 *            生成されるフィボナッチ数列の要素の最大値は、かならずterminationCondition以下となる。
 	 *            そのため、terminationConditionの最小値は1である。
 	 * @return terminationConditionで指定された条件を満たすAlteredFibonacciクラスのインスタンス

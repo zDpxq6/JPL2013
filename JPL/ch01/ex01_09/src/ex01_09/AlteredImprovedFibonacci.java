@@ -1,18 +1,17 @@
 //(C) 2014 zDpxq6
-package ex01_10;
+package ex01_09;
 
 import java.util.LinkedList;
 import java.util.List;
 
-//練習問題1.10 ImprovedFibonacciアプリケーションを修正して、数列を保存するようにしなさい。
-//その際に、数列の値とその値が偶数かを示すブール値を保持するクラスを作成して、そのクラスのオブジェクトへの参照を配列として持つようにしなさい
+//練習問題1.9 Fibonacciアプリケーションを修正して、数列を保存して、最後に値のリストを表示するようにしなさい。
 /**
  * @auther zDpxq6
  * */
-public class AlteredFibonacci {
+public class AlteredImprovedFibonacci {
 	private Integer[] fibonacci;
 
-	private AlteredFibonacci() {
+	private AlteredImprovedFibonacci() {
 		super();
 	}
 
@@ -23,11 +22,11 @@ public class AlteredFibonacci {
 	 *            そのため、terminationConditionの最小値は1である。
 	 * @return terminationConditionで指定された条件を満たすAlteredFibonacciクラスのインスタンス
 	 * */
-	public static AlteredFibonacci createAlteredFibonacci(int terminationCondition) {
+	public static AlteredImprovedFibonacci createAlteredFibonacci(int terminationCondition) {
 		if(terminationCondition <= 1){
 			throw new IllegalArgumentException();
 		}
-		AlteredFibonacci altFib = new AlteredFibonacci();
+		AlteredImprovedFibonacci altFib = new AlteredImprovedFibonacci();
 		altFib.makeFibonacci(terminationCondition);
 		return altFib;
 	}

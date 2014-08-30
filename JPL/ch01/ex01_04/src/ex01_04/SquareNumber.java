@@ -18,7 +18,7 @@ public class SquareNumber {
 
 	/**
 	 * @param terminationCondition
-	 *            int型のterminationConditionは、生成される平方表の要素の最大値を決定する。
+	 *            生成される平方表の要素の最大値を決定する。
 	 *            生成される平方表の要素の最大値は、かならずterminationConditionの二乗以下となる。
 	 * @return terminationConditionで指定された条件を満たすSquareNumberクラスのインスタンス
 	 * */

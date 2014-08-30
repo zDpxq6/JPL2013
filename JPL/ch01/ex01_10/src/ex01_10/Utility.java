@@ -91,4 +91,19 @@ public class Utility {
 		return (List<E>) result;
 	}
 
+	/**
+	 * 配列の内容を標準出力に出力するメソッドである。
+	 *
+	 * @param array
+	 *            List型のlistは、標準出力に出力するリストである。
+	 * */
+	public static void printList(int[] array) {
+		if(array == null){
+			throw new NullPointerException();
+		}
+		for (int element : array) {
+			System.out.println(element);
+		}
+	}
+
 }

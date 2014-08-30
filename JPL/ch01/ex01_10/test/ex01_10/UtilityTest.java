@@ -9,14 +9,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ex01_10.Utility;
-
 public class UtilityTest {
 
 	@Test
 	public void test() {
 		try{
-		Utility.printList(null);
+		Utility.printList((List<Object>)null);
 		org.junit.Assert.fail("本来到達しない");
 		} catch(NullPointerException e){
 			e.printStackTrace();
