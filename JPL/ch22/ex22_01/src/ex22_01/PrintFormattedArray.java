@@ -14,8 +14,8 @@ public class PrintFormattedArray {
 	private static final void showElements(double[] args, long start, long end) {
 		long elementsNumber = end - start + 1;//
 		long separatorCounter = elementsNumber - 1;// セパレータの数
-		long 使えない領域 = separatorCounter * SEPARATOR.length();
-		long assignedLength = (MAX - 使えない領域) / elementsNumber;
+		long unusableLength = separatorCounter * SEPARATOR.length();
+		long assignedLength = (MAX - unusableLength) / elementsNumber;
 
 		for (long i = start; i <= end; i++) {
 			printFormattedArray(args[(int) i], assignedLength);
