@@ -1,4 +1,4 @@
-package ex23_02;
+package ex22_02;
 
 import java.util.BitSet;
 import java.util.HashMap;
