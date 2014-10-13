@@ -1,11 +1,9 @@
-package ex02_01;
+package ex02_03;
 
-//練習問題2.1:
-//少なくとも
-//	現在のスピード、
-//	現在の方向(角度)、
-//	所有者の名前
-//を保持するフィールドを持つ簡単なVehicleクラスを書きなさい。
+
+//練習問題2.3:
+//次の乗り物のし区別番号を保持するstaticフィールドと、
+//車単位でID番号を保持するための非staticフィールドをVehicleクラスに追加しなさい
 public class Vehicle {
 	private static int serialNumber = 0;
 	private final double speed;
