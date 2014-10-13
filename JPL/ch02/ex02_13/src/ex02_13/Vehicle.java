@@ -1,6 +1,6 @@
-package ex02_18;
+package ex02_13;
 
-import ex02_18.Direction.RelativeDirection;
+import ex02_13.Direction.RelativeDirection;
 
 
 public class Vehicle {

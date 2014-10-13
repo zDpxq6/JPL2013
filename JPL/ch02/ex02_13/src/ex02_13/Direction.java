@@ -1,4 +1,4 @@
-package ex02_18;
+package ex02_13;
 
 public enum Direction {
 	N("North") {

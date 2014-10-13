@@ -1,7 +1,6 @@
-package ex02_18;
+package vehicle;
 
-import ex02_18.Direction.RelativeDirection;
-
+import vehicle.Direction.RelativeDirection;
 
 public class Vehicle {
 	private static final String MESSAGE = "[ID: %d, Speed: %.1f, Direction: %s, Owner: %s]";

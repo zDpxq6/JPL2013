@@ -1,4 +1,4 @@
-package ex02_18;
+package vehicle;
 
 public enum Direction {
 	N("North") {
