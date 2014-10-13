@@ -1,0 +1,1 @@
+PassengerVehicleをこれ以上拡張しない設計とするなら、getSeatやgetSeated、つまり拡張した分のメソッドをfinalにするのは適当。
