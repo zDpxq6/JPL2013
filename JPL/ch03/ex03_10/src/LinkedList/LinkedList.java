@@ -1,8 +1,8 @@
-package ex02_16;
+package LinkedList;
 //練習問題2.6: LinkedListクラスにmainメソッドを書いて、
 //Vehicle型のオブジェクトを数個作成して、
 //リストの連続したノードに入れなさい。
-public class LinkedList implements Cloneable{
+public class LinkedList {
 	private static final String TO_STRING_ELEMENT_SEPARATOR = ", ";
 	private static final String TO_STRING_ELEMENT_FINISHER = "}";
 	private static final String TO_STRING_ELEMENT_STARTER = "{";
@@ -48,11 +48,6 @@ public class LinkedList implements Cloneable{
 
 	public int size(){
 		return this.elementNumber;
-	}
-
-	@Override
-	public Object clone() throws CloneNotSupportedException{
-		throw new CloneNotSupportedException();
 	}
 
 }

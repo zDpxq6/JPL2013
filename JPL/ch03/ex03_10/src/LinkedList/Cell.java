@@ -1,8 +1,8 @@
-package ex02_16;
+package LinkedList;
 //練習問題2.6: LinkedListクラスにmainメソッドを書いて、
 //Vehicle型のオブジェクトを数個作成して、
 //リストの連続したノードに入れなさい。
-final class Cell implements Cloneable {
+class Cell {
 	Cell next;
 	Object data;
 
@@ -16,8 +16,4 @@ final class Cell implements Cloneable {
 		return this.data.toString();
 	}
 
-	@Override
-	public Object clone() throws CloneNotSupportedException{
-		return super.clone();
-	}
 }
