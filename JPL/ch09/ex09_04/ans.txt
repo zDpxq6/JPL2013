@@ -1,0 +1,14 @@
+3<<2L-1 -> 6
+(3L<<2) - 1 -> 15
+10 < 12 == 6 > 17 -> false
+10 << 12 == 6 >> 17 -> flase
+13.5e-1%Float.POSITIVE_INFINITY -> 1.35
+Float.POSITIVE_INFINITY + Double.POSITIVE_INFINITY -> Infinity
+Double.POSITIVE_INFINITY - Float.POSITIVE_INFINITY -> NaN
+0.0 / -0.0 == -0.0 / 0.0 -> false
+Integer.MAX_VALUE + Integer.MIN_VALUE -> -1
+Long.MAX_VALUE + 5 -> 9223372036854775804
+(short)5*+ (byte)10 -> 50
+
+i < 15 ? 1.72e3f : 0 -> 1720.0
+i++ + i++ + --i -> 11
