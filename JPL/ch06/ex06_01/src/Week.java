@@ -1,0 +1,15 @@
+enum WeekEnum {
+	MONDAY,
+	TUESDAY,
+	WEDNESDAY,
+	THURSDAY,
+	FRIDAY,
+	SATURDAY,
+	SUNDAY,
+}
+
+enum SignalEnum {
+	GREEN,
+	YELLOW,
+	RED,
+}
