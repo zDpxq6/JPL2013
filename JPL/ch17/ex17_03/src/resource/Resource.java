@@ -1,4 +1,4 @@
-package ex17_03;
+package resource;
 
 public interface Resource {
 	void use(Object key, Object...args);

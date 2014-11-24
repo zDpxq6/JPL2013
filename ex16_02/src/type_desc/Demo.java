@@ -1,4 +1,4 @@
-package ex16_01;
+package type_desc;
 
 public class Demo {
 	class NestedClass implements Runnable{

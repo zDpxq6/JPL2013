@@ -1,4 +1,4 @@
-package ex17_03;
+package ex17_05;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;
@@ -33,47 +33,43 @@ public final class ResourceManager {
 	 * 	2. Referenceが常に到達可能
 	 */
 	final Map<Reference<?>, Resource> map;
-
-	final Thread reaper;
 	boolean shutdown = false;
 
 	public ResourceManager() {
 		this.queue = new ReferenceQueue<Object>();			//到達可能性が変化すると参照キューに入る
 		this.map = new HashMap<Reference<?>, Resource>();	//参照とリソースが結びついている
-		this.reaper = new ReaperThread();					//刈り取りスレッド
-		this.reaper.start();
 
 		// ... リソースの初期化 ...
 	}
 
-	class ReaperThread extends Thread {
-		@Override
-		public void run() {
-			while (true) {
-				try {
-					Reference<?> ref = ResourceManager.this.queue.remove();//この時点でキューに入っているものが議論対象。参照キューから参照オブジェクトを1つ除いて返す.
-					Resource resource = null;
-					synchronized (ResourceManager.this) {
-						resource = ResourceManager.this.map.get(ref);//参照オブジェクトと結びついているリソースを返す
-						ResourceManager.this.map.remove(ref);//参照オブジェクトは削除
-					}
-					resource.release();
-					ref.clear();//参照オブジェクトとリソースの結びつきを削除する
-				} catch (InterruptedException e) {
-					if(ResourceManager.this.shutdown && ResourceManager.this.map.size() == 0){
-						break;
-					} else {
-						continue;
-					}
-				}
-			}
-		}
-	}
+//	class ReaperThread extends Thread {
+//		@Override
+//		public void run() {
+//			while (true) {
+//				try {
+//					Reference<?> ref = ResourceManager.this.queue.remove();//この時点でキューに入っているものが議論対象。参照キューから参照オブジェクトを1つ除いて返す.
+//					Resource resource = null;
+//					synchronized (ResourceManager.this) {
+//						resource = ResourceManager.this.map.get(ref);//参照オブジェクトと結びついているリソースを返す
+//						ResourceManager.this.map.remove(ref);//参照オブジェクトは削除
+//					}
+//					resource.release();
+//					ref.clear();//参照オブジェクトとリソースの結びつきを削除する
+//				} catch (InterruptedException e) {
+//					if(ResourceManager.this.shutdown && ResourceManager.this.map.size() == 0){
+//						break;
+//					} else {
+//						continue;
+//					}
+//				}
+//			}
+//		}
+//	}
 
 	public synchronized void shutdown() {
 		if (!this.shutdown) {
 			this.shutdown = true;
-			this.reaper.interrupt();
+//			this.reaper.interrupt();
 		}
 	}
 
